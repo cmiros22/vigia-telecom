@@ -1,0 +1,54 @@
+{
+    "site": {
+      "title": "Vigia Telecom",
+      "base_url": "https://vigiatelcomm.com",
+      "base_path": "/",
+      "trailing_slash": false,
+      "favicon": "/images/favicon.png",
+      "logo": "/images/logo.jpg",
+      "logo_width": "147",
+      "logo_height": "31",
+      "logo_text": "Vigia Telecom"
+    },
+  
+    "settings": {
+      "pagination": 6,
+      "summary_length": 100,
+      "blog_folder": "blog"
+    },
+  
+    "call_to_action": {
+      "title": "Empowering Teams Globally with Precision",
+      "description": "Experience seamless integration and innovative technology designed to propel your business forward.",
+      "button1": {
+        "label1": "Get Started",
+        "link1": "#"
+      },
+      "button2": {
+        "label2": "Contact Us",
+        "link2": "/contact-sales"
+      }
+    },
+  
+    "disqus": {
+      "enable": true,
+      "shortname": "violeta-template",
+      "settings": {}
+    },
+  
+    "params": {
+      "footer_description": "Llevando el futuro de la conectividad a tu puerta. Fibra Optica real, sin letras chiquitas.",
+      "email": "info@andromeda.io",
+      "location": "2118 Thornridge Cir. Syracuse, Connecticut 35624",
+      "phone": "+704-555-0127",
+      "contact_form_action": "#",
+      "copyright": "Copyright © 2026 Vigía Telcom"
+    },
+  
+    "metadata": {
+      "meta_author": "Twiggly.com",
+      "meta_image": "/images/og-image.png",
+      "meta_description": "Violeta"
+    }
+  }
+  

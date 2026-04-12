@@ -1,0 +1,123 @@
+html {
+    @apply text-base;
+  }
+  
+  body {
+    font-family: "Orbitron", sans-serif;
+  }
+  
+  // body {
+  //   @apply bg-theme-light bg-repeat font-poppins font-normal leading-relaxed text-text;
+  //   // @apply bg-theme-light bg-[url('/images/body-bg.svg')] bg-repeat font-primary font-normal leading-relaxed text-text;
+  // }
+  
+  // h1,
+  // h2,
+  // h3,
+  // h4,
+  // h5,
+  // h6 {
+  //   @apply font-secondary font-bold leading-tight text-black font-sans ;
+  // }
+  
+  h1,
+  .h1 {
+    @apply text-h1-sm md:text-h1;
+  }
+  
+  h2,
+  .h2 {
+    @apply text-h2-sm md:text-h2;
+  }
+  
+  h3,
+  .h3 {
+    @apply text-h3-sm md:text-h3;
+  }
+  
+  h4,
+  .h4 {
+    @apply text-h4;
+  }
+  
+  h5,
+  .h5 {
+    @apply text-h5;
+  }
+  
+  h6,
+  .h6 {
+    @apply text-h6;
+  }
+  
+  p,
+  .p{
+    @apply text-black font-semibold text-[18px];
+  }
+  
+  .gradient-text{
+    background-image: linear-gradient(to right, #020314 40%, #103FBD);
+      color: transparent;
+      background-clip: text;
+  }
+  
+  .glowing-icon {
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+  }
+  
+  .glow-effect {
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 500px;
+      background: radial-gradient(circle at bottom, rgba(138, 43, 226, 0.5), transparent 40%);
+      z-index: -1; 
+      filter: blur(5px);
+      transform: translateY(-50%);
+    }
+  }
+  
+  .dashboard-image {
+    position: relative;
+    border: 2px solid transparent;
+    border-radius: 12px; 
+    &::before {
+      content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px; 
+    background: linear-gradient(to right, transparent, #33abfd, transparent);
+    top: -2.5px; 
+    }
+  } 
+  
+  .gradient-background {
+    background: radial-gradient(circle, rgba(20, 57, 148, 0.5), rgba(0, 0, 0, 0) 60%);
+    // background-position:  top calc(20% + 75px);
+    background-repeat: no-repeat;
+    padding-bottom: 150px;
+    border-radius: 10px;
+  }
+  
+  //hero image up and down animation
+  @keyframes upDown {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Apply the animation */
+  .animate-up-down {
+    animation: upDown 3s ease-in-out infinite;
+  }

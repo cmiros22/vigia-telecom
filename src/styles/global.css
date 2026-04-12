@@ -1,0 +1,4 @@
+@import "tailwindcss";
+@plugin "tailwindcss-debug-screens";
+
+@import "@heroui/styles";

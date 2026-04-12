@@ -1,0 +1,101 @@
+.btn {
+    @apply inline-block h-[52px] border px-8 py-2 text-sm font-medium leading-[36px] transition-all duration-200;
+  }
+  
+  .btn-primary {
+    @apply cursor-pointer rounded-[50px] border-0 bg-gradient-to-tl text-center font-medium text-white hover:shadow-[0px_5px_30px_rgba(252,167,111,0.5)];
+  }
+  
+  .btn-outline-primary {
+    @apply relative rounded-[50px] border-primary bg-transparent text-center capitalize text-dark hover:bg-transparent hover:text-white hover:shadow-[0px_5px_30px_rgba(252,167,111,0.5)] hover:before:opacity-100;
+    &::before {
+      @apply absolute bottom-0 left-0 right-0 top-0 -z-[1] rounded-[inherit] bg-black opacity-0 transition-[inherit] content-[""];
+    }
+  }
+  
+  .btn-outline-white {
+    @apply rounded-[50px] bg-transparent text-center capitalize text-dark;
+  }
+  
+  .btn-simple{
+    @apply text-turquoise-blue font-bold pt-2 hover:text-pink;
+  }
+  
+  // .btn-purple {
+  //   @apply min-w-[150px] rounded-[50px] text-center text-[12px] lg:text-[15px] tracking-widest capitalize text-white font-semibold;
+  //   background: linear-gradient(to bottom, #0072cc, #33abfd);
+  //   &:hover{
+  //     background: linear-gradient(to bottom, #005aa5, #088eea);
+  
+  //   }
+  // }
+  
+  .btn-purple {
+    @apply min-w-[150px] rounded-[50px] text-center text-[12px] lg:text-[15px] tracking-widest capitalize text-white font-semibold;
+    background: linear-gradient(90deg, rgba(56,169,71,1) 0%, rgba(56,169,71,1) 49%, rgba(56,169,71,1) 100%);
+    &:hover{
+      background: linear-gradient(to bottom, #38A947, #5fc96d);
+  
+    }
+  }
+  
+  .btn-purple-hero{
+    @apply  rounded-[50px] px-8 py-2 border-transparent bg-turquoise-blue text-center text-[15px] tracking-widest capitalize text-white font-semibold;
+    &:hover{
+      background: linear-gradient(to bottom, #005aa5, #088eea);
+    }
+  }
+  
+  .btn-gray {
+    @apply min-w-[150px] rounded-[50px] border-turquoise-blue bg-transparent font-bold bg-opacity-80 text-center text-[12px] lg:text-[15px] tracking-widest capitalize text-turquoise-blue shadow-lg hover:bg-[#0072cc] hover:text-white;
+  }
+  
+  .btn-sm {
+    @apply h-[42px] leading-[24px];
+  }
+  
+  .btn-secondary {
+    @apply relative inline-block px-12 py-2 my-4 rounded-full text-white lg:text-[15px] text-[10px];
+    background: linear-gradient(to bottom, #333333, #000000) padding-box;
+    
+    &::before,
+    &::after {
+    content: '';
+    @apply absolute left-0 right-0;
+    height: 3px; /* Adjust as needed for thickness */
+    background: linear-gradient(to right, transparent, #0072cc, transparent);
+    }
+    &::before {
+      top: -1px; /* Adjust as needed for spacing */
+    }
+    &::after {
+      bottom: -1px; /* Adjust as needed for spacing */
+    }
+    &:hover {
+      color: #b3b2b2;
+      cursor: pointer;
+      &::before,
+      &::after {
+        background: linear-gradient(to right, transparent, #33abfd, transparent); /* Change color on hover */
+      }
+    }
+  }
+  
+  .btn-black {
+    @apply relative inline-block px-12 rounded-full text-white bg-black border-2 tracking-widest;
+    // background: linear-gradient(to right, #b104b4, #7213c5) padding-box;
+    
+    &:hover {
+      color: #000000;
+      background-color: #fff;
+      border-color: black;
+      font-weight: bold;
+    }
+  }
+  
+  .btn-google{
+    @apply border-turquoise-blue border-2 rounded-full text-center text-white bg-turquoise-blue py-2;
+    &:hover{
+      @apply bg-header-color border-white text-white;
+    }
+  }

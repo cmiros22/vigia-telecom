@@ -1,0 +1,52 @@
+tit---
+import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
+const { page_data } = Astro.props || {};
+const { title, index_title, page_subtitle, page_title, page_descrition, slug, content } = page_data || {};
+import { AiOutlineArrowRight } from "react-icons/ai";
+---
+
+<div class="text-start">
+
+  <h6 class="text-bluePrimary-800 font-bold text-4xl xl:text-4xl lg:text-4xl md:tex-3xl transition-all"
+    set:html={markdownify(
+      page_data?.page_title ? page_data?.page_title : page_data?.title
+    )}
+  />
+  <h1 class="mb-5 mt-6 xl:text-xl lg:text-md md:tex-4xl transition-all"
+    set:html={markdownify(
+      page_data?.page_subtitle ? page_data?.page_subtitle : page_data?.page_subtitle
+    )}
+  />
+  <!-- <p class="mb-5 mt-6 prose-p" set:html={markdownify(page_data?.page_description)} /> -->
+
+  <p class="text-white text-lg transition-all opacity-70 prose-p" 
+    set:html={markdownify(content)}
+  />
+  {
+    page_data.buttons && (
+      <div class="mt-11 flex flex-wrap justify-start gap-0 md:gap-3"> <!-- mt-11 justify-start sm:flex -->
+        {page_data.buttons.map(
+          (button: any) =>
+            button?.enable && (
+              <a
+                class={` mr-3 block sm:inline-block ${
+                  button?.outline ? "btn-simple" : "btn btn-purple"
+                } flex items-center group transition-transform duration-300`}
+                href={button?.link}
+              >
+                {button?.outline && (
+                  <span class="flex items-center">
+                    <span>{button?.label}</span>
+                    <AiOutlineArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                  </span>
+                )}
+                {!button?.outline && (
+                  <span>{button?.label}</span>
+                )}
+              </a>
+            )
+        )}
+      </div>
+    )
+  }
+</div>

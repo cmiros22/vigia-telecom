@@ -1,6 +1,6 @@
-import { $ as $$Base } from './Base_Cp2XC8ok.mjs';
-import { c as createComponent } from './_astro_assets_Dptnpedp.mjs';
-import { r as renderComponent, b as renderTemplate } from './entrypoint_BpOoe5qH.mjs';
+import { $ as $$Base } from './Base_DVi7LqPn.mjs';
+import { c as createComponent } from './_astro_assets_CrcUxtTs.mjs';
+import { r as renderComponent, b as renderTemplate } from './entrypoint_DCprMgIr.mjs';
 
 const $$Nosotros = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${renderComponent($$result, "Base", $$Base, {}, { "default": ($$result2) => renderTemplate`  ` })}`;

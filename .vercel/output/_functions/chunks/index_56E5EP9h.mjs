@@ -1,6 +1,6 @@
-import { $ as $$Base } from './Base_Cp2XC8ok.mjs';
-import { c as createComponent, V as VALID_INPUT_FORMATS } from './_astro_assets_Dptnpedp.mjs';
-import { g as generateCspDigest, s as spreadAttributes, u as unescapeHTML, b as renderTemplate, c as removeBase, i as isRemotePath, d as unflatten, o as object, e as date, f as array, A as AstroError, U as UnknownContentCollectionError, h as string, m as maybeRenderHead, r as renderComponent } from './entrypoint_BpOoe5qH.mjs';
+import { $ as $$Base } from './Base_DVi7LqPn.mjs';
+import { c as createComponent, V as VALID_INPUT_FORMATS } from './_astro_assets_CrcUxtTs.mjs';
+import { g as generateCspDigest, s as spreadAttributes, u as unescapeHTML, b as renderTemplate, c as removeBase, i as isRemotePath, d as unflatten, o as object, e as date, f as array, A as AstroError, U as UnknownContentCollectionError, h as string, m as maybeRenderHead, r as renderComponent } from './entrypoint_DCprMgIr.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';

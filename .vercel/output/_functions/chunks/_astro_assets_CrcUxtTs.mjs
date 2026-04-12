@@ -1,4 +1,4 @@
-import { t as typeHandlers, p as types, A as AstroError, N as NoImageMetadata, q as FailedToFetchRemoteImageDimensions, a as isRemoteAllowed, R as RemoteImageNotAllowed, I as InvalidComponentArgs, v as joinPaths, E as ExpectedImage, i as isRemotePath, L as LocalImageUsedWrongly, M as MissingImageDimension, w as UnsupportedImageFormat, x as IncompatibleDescriptorOptions, y as UnsupportedImageConversion, z as InvalidImageService, B as ExpectedImageOptions, C as ExpectedNotESMImage, D as ImageMissingAlt, m as maybeRenderHead, k as addAttribute, s as spreadAttributes, b as renderTemplate, G as FontFamilyNotFound, u as unescapeHTML } from './entrypoint_BpOoe5qH.mjs';
+import { t as typeHandlers, p as types, A as AstroError, N as NoImageMetadata, q as FailedToFetchRemoteImageDimensions, a as isRemoteAllowed, R as RemoteImageNotAllowed, I as InvalidComponentArgs, v as joinPaths, E as ExpectedImage, i as isRemotePath, L as LocalImageUsedWrongly, M as MissingImageDimension, w as UnsupportedImageFormat, x as IncompatibleDescriptorOptions, y as UnsupportedImageConversion, z as InvalidImageService, B as ExpectedImageOptions, C as ExpectedNotESMImage, D as ImageMissingAlt, m as maybeRenderHead, k as addAttribute, s as spreadAttributes, b as renderTemplate, G as FontFamilyNotFound, u as unescapeHTML } from './entrypoint_DCprMgIr.mjs';
 
 function isESMImportedImage(src) {
   return typeof src === "object" || typeof src === "function" && "src" in src;
@@ -564,7 +564,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_D_VkmcbN.mjs'
+      './sharp_DZ-pKUua.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;

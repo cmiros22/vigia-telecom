@@ -21,21 +21,6 @@ export default defineConfig({
     react(),
     sitemap(),
     tailwind(),
-    AutoImport({
-      imports: [
-        "@/shortcodes/Button",
-        "@/shortcodes/Accordion",
-        "@/shortcodes/Notice",
-        "@/shortcodes/Video",
-        "@/shortcodes/Youtube",
-        "@/shortcodes/Blockquote",
-        "@/shortcodes/Badge",
-        "@/shortcodes/ContentBlock",
-        "@/shortcodes/Changelog",
-        "@/shortcodes/Tab",
-        "@/shortcodes/Tabs",
-      ],
-    }),
     mdx(),
   ],
 
@@ -56,5 +41,10 @@ export default defineConfig({
     extendDefaultPlugins: true,
   },
 
-  adapter: vercel()
+  adapter: vercel(),
+  vite: {
+    ssr: {
+      noExternal: []
+    }
+  }
 });

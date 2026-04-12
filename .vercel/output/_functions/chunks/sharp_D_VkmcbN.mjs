@@ -1,5 +1,5 @@
-import { A as AstroError, v as MissingSharp } from './entrypoint_BUnSPvm7.mjs';
-import { b as baseService, p as parseQuality } from './generic_DtRZAPil.mjs';
+import { A as AstroError, H as MissingSharp } from './entrypoint_BpOoe5qH.mjs';
+import { b as baseService, p as parseQuality } from './_astro_assets_Dptnpedp.mjs';
 
 let sharp;
 const qualityTable = {
@@ -52,7 +52,7 @@ function resolveSharpEncoderOptions(transform, inputFormat, serviceConfig = {}) 
 async function loadSharp() {
   let sharpImport;
   try {
-    sharpImport = (await import('./index_BB98lJ5n.mjs').then(n => n.i)).default;
+    sharpImport = (await import('./index_B9VGP8Ps.mjs').then(n => n.i)).default;
   } catch {
     throw new AstroError(MissingSharp);
   }

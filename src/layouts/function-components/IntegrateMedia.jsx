@@ -7,7 +7,7 @@ const IntegrateMedia = ({ integrations, categories }) => {
   const [tab, setTab] = useState("");
   const filterPost = !tab
     ? integrations
-    : integrations.filter((post) => post.data.categories.includes(tab));
+    : integrations.filter((post) => post.data?.categories?.includes(tab));
   return (
     <section className="section pt-0">
       <div className="container">
@@ -47,10 +47,10 @@ const IntegrateMedia = ({ integrations, categories }) => {
             >
               <div className="rounded-xl bg-white mx-4 md:mx-2 px-10 pb-8 pt-11 border border-[#2a8f37] shadow-[0px_-10px_0px_#24712f] transition-transform duration-500 hover:scale-105">
                 <div className="integration-card-head flex items-center space-x-4">
-                  <img src={item.data.image} alt="" className="w-12"/>
+                  <img src={item.data?.image || "/images/placeholder.png"} alt="" className="w-12"/>
                   <div>
-                    <h4 className="h4 text-xl">{humanize(item.data.name)}</h4>
-                    {item.data.categories.map((category, i) => (
+                    <h4 className="h4 text-xl">{humanize(item.data?.name || "Untitled")}</h4>
+                    {item.data?.categories?.map((category, i) => (
                       <span className="font-medium text-sm" key={i}>
                         {humanize(category)}
                       </span>
@@ -61,7 +61,7 @@ const IntegrateMedia = ({ integrations, categories }) => {
                   <p
                     dangerouslySetInnerHTML={{
                       __html: marked.parseInline(
-                        item.data.excerpt.slice(0, 200),
+                        (item.data?.excerpt || "").slice(0, 200),
                       ),
                     }}
                     className="text-sm"

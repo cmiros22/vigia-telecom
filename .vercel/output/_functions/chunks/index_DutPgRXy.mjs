@@ -1,6 +1,6 @@
-import { $ as $$Base } from './Base_DVi7LqPn.mjs';
-import { c as createComponent, V as VALID_INPUT_FORMATS } from './_astro_assets_CrcUxtTs.mjs';
-import { g as generateCspDigest, s as spreadAttributes, u as unescapeHTML, b as renderTemplate, c as removeBase, i as isRemotePath, d as unflatten, o as object, e as date, f as array, A as AstroError, U as UnknownContentCollectionError, h as string, m as maybeRenderHead, r as renderComponent } from './entrypoint_DCprMgIr.mjs';
+import { $ as $$Base } from './Base_7d5SD5Fy.mjs';
+import { c as createComponent, V as VALID_INPUT_FORMATS } from './_astro_assets_Ch561kCp.mjs';
+import { g as generateCspDigest, s as spreadAttributes, u as unescapeHTML, b as renderTemplate, c as removeBase, i as isRemotePath, d as unflatten, o as object, e as date, f as array, A as AstroError, U as UnknownContentCollectionError, h as string, m as maybeRenderHead, r as renderComponent } from './entrypoint_DXlBMXMo.mjs';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -161,7 +161,7 @@ class ImmutableDataStore {
    */
   static async fromModule() {
     try {
-      const data = await import('./_astro_data-layer-content_D4oOR4yb.mjs');
+      const data = await import('./_astro_data-layer-content_DwimpDlF.mjs');
       if (data.default instanceof Map) {
         return ImmutableDataStore.fromMap(data.default);
       }
@@ -210,7 +210,7 @@ function createGetCollection({
     const hasFilter = typeof filter === "function";
     const store = await globalDataStore.get();
     if (store.hasCollection(collection)) {
-      const { default: imageAssetMap } = await import('./content-assets_DleWbedO.mjs');
+      const { default: imageAssetMap } = await import('./content-assets_DloNRoa4.mjs');
       const result = [];
       for (const rawEntry of store.values(collection)) {
         const data = updateImageReferencesInData(rawEntry.data, rawEntry.filePath, imageAssetMap);
@@ -269,7 +269,7 @@ function createGetEntry({ liveCollections }) {
         console.warn(`Entry ${collection} → ${lookupId} was not found.`);
         return;
       }
-      const { default: imageAssetMap } = await import('./content-assets_DleWbedO.mjs');
+      const { default: imageAssetMap } = await import('./content-assets_DloNRoa4.mjs');
       entry.data = updateImageReferencesInData(entry.data, entry.filePath, imageAssetMap);
       const result = {
         ...entry,

@@ -5,9 +5,9 @@
       "base_path": "/",
       "trailing_slash": false,
       "favicon": "/images/favicon.png",
-      "logo": "/images/logo.jpg",
-      "logo_width": "147",
-      "logo_height": "31",
+      "logo": "/images/logoVigiaBlanco.svg",
+      "logo_width": "150",
+      "logo_height": "70",
       "logo_text": "Vigia Telecom"
     },
   
@@ -32,7 +32,7 @@
   
     "disqus": {
       "enable": true,
-      "shortname": "violeta-template",
+      "shortname": "",
       "settings": {}
     },
   
@@ -46,9 +46,9 @@
     },
   
     "metadata": {
-      "meta_author": "Twiggly.com",
+      "meta_author": "Vigia Telecom",
       "meta_image": "/images/og-image.png",
-      "meta_description": "Violeta"
+      "meta_description": "Vigia Telecom - Conectando tu negocio con el futuro"
     }
   }
   

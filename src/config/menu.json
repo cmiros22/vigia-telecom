@@ -20,34 +20,26 @@
   
     "footer1": [
       {
-        "name": "Aviso de Privacidad",
-        "url": "/aviso-privacidad"
+        "name": "Nosotros",
+        "url": "#"
       },
       {
-        "name": "Términos y Condiciones",
-        "url": "/terminos-y-condiciones"
-      },
-      {
-        "name": "Cobertura",
-        "url": "/cobertura"
-      },
-      {
-        "name": "Códifo de Ética",
-        "url": "/codigo-etica"
+        "name": "Trabaja con nostros",
+        "url": "#"
       }
     ],
   
     "footer2": [
       {
-        "name": "Contrato de Adhesión",
-        "url": "#"
-      },
-      {
         "name": "Tarifas",
+        "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Pagina%20Web%202.pdf"
+      },
+      {
+        "name": "Catálogo de trámites",
         "url": "#"
       },
       {
-        "name": "Código de prácticas comerciales",
+        "name": "Contrato de Adhesión",
         "url": "#"
       },
       {
@@ -59,11 +51,26 @@
         "url": "#"
       },
       {
-        "name": "Código de Políticas de Gestión de Tráfico y Administración de Red",
+        "name": "Código de prácticas comerciales",
         "url": "#"
       },
       {
-        "name": "Catálogo de trámites",
+        "name": "Código de Políticas de Gestión de Tráfico y Administración de Red",
+        "url": "#"
+      }
+    ],
+
+    "footer3": [
+      {
+        "name": "Contacto",
+        "url": "#"
+      },
+      {
+        "name": "Códifo de ética",
+        "url": "#"
+      },
+      {
+        "name": "Mapa de cobertura",
         "url": "#"
       }
     ]

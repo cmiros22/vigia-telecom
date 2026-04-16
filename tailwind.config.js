@@ -163,15 +163,6 @@ module.exports = {
         5: "3rem",
       },
     }),
-      require("tailwindcss-animate"),
-      require("tailwindcss-debug-screens")({
-      screens: {
-        'sm': '540px',
-        'md': '768px', 
-        'lg': '1024px',
-        'xl': '1280px',
-        '2xl': '1536px'
-      }
-    })
+      require("tailwindcss-animate")
 ],
 };

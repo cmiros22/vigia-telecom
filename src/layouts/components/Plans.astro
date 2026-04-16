@@ -1,134 +1,245 @@
-<section class='min-h-[90vh] flex items-center justify-center flex-col py-20 px-4 bg-[#101419]'>
-    <h1 class='font-medium text-lg md:text-lg text-[#78D3EB] text-start px-4' style="width: stretch">
-        NUESTROS PLANES
-    </h1>
-    <p class='text-4xl text-[#E0E2EA] p-4 text-start mt-4' style="width: stretch">
-        Elige el plan que mejor se adapte a tus necesidades
-    </p>
-    <div class='mt-6 flex bg-[#2a2f34] p-1.5 rounded-full'>
-        <button id="monthlyBtn" onclick="togglePricing(false)"
-            class='px-4 py-2 rounded-full text-xs cursor-pointer transition text-white'>Mensual</button>
-        <button id="annuallyBtn" onclick="togglePricing(true)"
-            class='px-4 py-2 rounded-full text-xs cursor-pointer transition bg-[#00F5FF] hover:bg-[#00d4e6] text-gray-600'>Anual</button>
-    </div>
-    <div class='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-
-        <div class='bg-[#1a1e23] rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 border-2 border-transparent hover:-translate-y-1 hover:border-[#00F5FF] hover:bg-[#2a2e33]'>
-            <h1 class='font-medium text-lg text-gray-200 mt-1'>Basico Sentinel</h1>
-            <p class='text-2xl text-gray-200 mt-2'>500 Mbps</p>
-            <h1 class='font-medium text-5xl text-gray-200 mt-6'>$<span id="basicPrice">350</span></h1>
-            
-            <div class='w-full mt-8 space-y-2.5 pb-4'>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Essential site setup support
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Access to basic UI templates
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Email support for minor updates
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Access to basic components
-                </p>
-            </div>
-            <button class='relative w-full border border-[#3E484C] px-4 py-3 rounded-full cursor-pointer text-[#E0E2EA] text-sm mt-8 transition-all duration-300 overflow-hidden hover:text-[#003640] hover:translate-y-[-2px] group'>
-                <span class='relative z-10'>Seleccionar plan</span>
-                <div class='absolute inset-0 bg-[linear-gradient(90deg,_rgb(43,_215,_229)_0%,_rgb(15,_186,_203)_49%,_rgb(15,_150,_171)_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100'></div>
-            </button>
+<section class='min-h-[90vh] flex items-center justify-center flex-col py-20 px-4 bg-gradient-to-br from-[#0B0F14] via-[#101419] to-[#181C21] relative overflow-hidden'>
+    <!-- Background decoration -->
+    <div class='absolute inset-0 bg-[url("/images/background_pattern_02.png")] opacity-10'></div>
+    <div class='absolute top-0 left-0 w-96 h-96 bg-[#00F5FF] opacity-5 rounded-full blur-3xl'></div>
+    <div class='absolute bottom-0 right-0 w-96 h-96 bg-[#007E94] opacity-5 rounded-full blur-3xl'></div>
+    
+    <div class='relative z-10 w-full max-w-7xl mx-auto'>
+        <!-- Header -->
+        <div class='text-center mb-16'>
+            <h1 class='font-bold text-5xl md:text-6xl text-[#E0E2EA] mb-6'>
+                Nuestros <span class='text-transparent bg-clip-text bg-gradient-to-r from-[#00F5FF] to-[#007E94]'>Planes</span>
+            </h1>
+            <p class='text-xl text-[#78D3EB] max-w-2xl mx-auto'>
+                Conectividad de alta velocidad diseñada para impulsar tu negocio y hogar
+            </p>
         </div>
 
-        <div class='bg-[#1a1e23] rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 border-2 border-transparent hover:-translate-y-1 hover:border-[#00F5FF] hover:bg-[#2a2e33] relative'>
-            <h1 class='font-medium text-lg text-gray-200 mt-1'>Pro Guardian</h1>
-            <p class='text-2xl text-gray-200 mt-2'>1000 Mbps</p>
-            <h1 class='font-medium text-5xl text-gray-200 mt-6'>$<span id="proPrice">450</span></h1>
-            
-            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                <span class="inline-block px-4 py-1.5 bg-[#00F5FF] border border-rose-600 rounded-full text-sm font-bold">
-                    Recomendado
-                </span>
+        <!-- Billing Toggle -->
+        <div class='flex justify-center mb-12'>
+            <div class='bg-[#2a2f34] p-1.5 rounded-full border border-[#3E484C]'>
+                <button id="monthlyBtn" onclick="togglePricing(false)"
+                    class='px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 text-[#78D3EB] hover:text-white'>Mensual</button>
+                <button id="annuallyBtn" onclick="togglePricing(true)"
+                    class='px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gradient-to-r from-[#00F5FF] to-[#007E94] text-[#0B0F14] shadow-lg shadow-[#00F5FF]/30'>Anual <span class='text-xs opacity-75'>Ahorra 20%</span></button>
             </div>
-
-            <div class='w-full mt-8 space-y-2.5 pb-4'>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Custom web page design up to 5 pages
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Access to basic UI templates
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Email support for minor updates
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Access to basic components
-                </p>
-            </div>
-
-            <button class='w-full px-4 py-3 rounded-full cursor-pointer text-[#003640] text-sm mt-8 bg-[linear-gradient(90deg,_rgb(43,_215,_229)_0%,_rgb(15,_186,_203)_49%,_rgb(15,_150,_171)_100%)]'>
-                Contratar
-            </button>
         </div>
+    <!-- Pricing Cards -->
+        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
 
-        <div class='bg-[#1a1e23] rounded-2xl p-6 flex flex-col items-start max-w-md transition duration-300 border-2 border-transparent hover:-translate-y-1 hover:border-[#00F5FF] hover:bg-[#2a2e33]'>
-            <h1 class='font-medium text-lg text-gray-200 mt-1'>Business Shield</h1>
-            <p class='text-2xl text-gray-200 mt-2'>2.5 Gbps</p>
-            <h1 class='font-medium text-5xl text-gray-200 mt-6'>$<span id="enterprisePrice">600</span></h1>
-            
-            <div class='w-full mt-8 space-y-2.5 pb-4'>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Full website redesign & development
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Advanced analytics insights
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Ongoing dedicated support
-                </p>
-                <p class='flex items-center gap-3 text-sm text-zinc-200'>
-                    <span class='size-3 rounded-full bg-zinc-300 flex items-center justify-center shrink-0'>
-                        <span class='size-1.5 rounded-full bg-zinc-800'></span>
-                    </span>
-                    Access to basic UI templates
-                </p>
+            <!-- Basic Plan -->
+            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-8 border border-[#3E484C] hover:border-[#00F5FF]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#00F5FF]/10 hover:-translate-y-2'>
+                <div class='absolute inset-0 bg-gradient-to-t from-[#00F5FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl'></div>
+                
+                <div class='relative z-10'>
+                    <div class='flex items-center justify-between mb-6'>
+                        <h3 class='text-2xl font-bold text-[#E0E2EA]'>Básico</h3>
+                        <div class='w-12 h-12 bg-[#00F5FF]/20 rounded-full flex items-center justify-center'>
+                            <span class='text-[#00F5FF] text-lg'>1</span>
+                        </div>
+                    </div>
+                    
+                    <div class='mb-8'>
+                        <p class='text-[#78D3EB] text-lg mb-2'>500 Mbps</p>
+                        <div class='flex items-baseline'>
+                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="basicPrice">350</span></span>
+                            <span class='text-[#78D3EB] ml-2'>/mes</span>
+                        </div>
+                    </div>
+
+                    <div class='space-y-4 mb-8'>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>Conexión fibra óptica 500 Mbps</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>WiFi 6 incluido</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>Soporte técnico 24/7</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>1 dispositivo conectado</p>
+                        </div>
+                    </div>
+
+                    <button class='w-full py-3 px-6 rounded-full border-2 border-[#3E484C] text-[#E0E2EA] font-medium hover:border-[#00F5FF] hover:text-[#00F5FF] transition-all duration-300'>
+                        Seleccionar Plan
+                    </button>
+                </div>
             </div>
 
-            <button class='relative w-full border border-[#3E484C] px-4 py-3 rounded-full cursor-pointer text-[#E0E2EA] text-sm mt-8 transition-all duration-300 overflow-hidden hover:text-[#003640] hover:translate-y-[-2px] group'>
-                <span class='relative z-10'>Seleccionar plan</span>
-                <div class='absolute inset-0 bg-[linear-gradient(90deg,_rgb(43,_215,_229)_0%,_rgb(15,_186,_203)_49%,_rgb(15,_150,_171)_100%)] opacity-0 transition-opacity duration-300 group-hover:opacity-100'></div>
-            </button>
+            <!-- Pro Plan -->
+            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-8 border-2 border-[#00F5FF] shadow-2xl shadow-[#00F5FF]/20 transform scale-105 lg:scale-110 transition-all duration-500 hover:-translate-y-2'>
+                <div class='absolute inset-0 bg-gradient-to-t from-[#00F5FF]/10 to-transparent rounded-3xl'></div>
+                
+                <!-- Popular Badge -->
+                <div class='absolute -top-4 left-1/2 transform -translate-x-1/2'>
+                    <div class='bg-gradient-to-r from-[#00F5FF] to-[#007E94] text-[#0B0F14] px-6 py-2 rounded-full text-sm font-bold shadow-lg'>
+                        Más Popular
+                    </div>
+                </div>
+
+                <div class='relative z-10 pt-4'>
+                    <div class='flex items-center justify-between mb-6'>
+                        <h3 class='text-2xl font-bold text-[#E0E2EA]'>Profesional</h3>
+                        <div class='w-12 h-12 bg-[#00F5FF] rounded-full flex items-center justify-center'>
+                            <span class='text-[#0B0F14] text-lg font-bold'>2</span>
+                        </div>
+                    </div>
+                    
+                    <div class='mb-8'>
+                        <p class='text-[#00F5FF] text-lg mb-2 font-medium'>1000 Mbps</p>
+                        <div class='flex items-baseline'>
+                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="proPrice">450</span></span>
+                            <span class='text-[#78D3EB] ml-2'>/mes</span>
+                        </div>
+                    </div>
+
+                    <div class='space-y-4 mb-8'>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#0B0F14]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>Conexión fibra óptica 1 Gbps</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#0B0F14]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>WiFi 6E avanzado</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#0B0F14]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>Soporte prioritario 24/7</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#0B0F14]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>Hasta 10 dispositivos</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#0B0F14]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>IP dedicada</p>
+                        </div>
+                    </div>
+
+                    <button class='w-full py-3 px-6 rounded-full bg-gradient-to-r from-[#00F5FF] to-[#007E94] text-[#0B0F14] font-bold shadow-lg shadow-[#00F5FF]/30 hover:shadow-[#00F5FF]/50 transition-all duration-300 transform hover:scale-105'>
+                        Contratar Ahora
+                    </button>
+                </div>
+            </div>
+
+            <!-- Enterprise Plan -->
+            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-8 border border-[#3E484C] hover:border-[#007E94]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#007E94]/10 hover:-translate-y-2'>
+                <div class='absolute inset-0 bg-gradient-to-t from-[#007E94]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl'></div>
+                
+                <div class='relative z-10'>
+                    <div class='flex items-center justify-between mb-6'>
+                        <h3 class='text-2xl font-bold text-[#E0E2EA]'>Empresarial</h3>
+                        <div class='w-12 h-12 bg-[#007E94]/20 rounded-full flex items-center justify-center'>
+                            <span class='text-[#007E94] text-lg font-bold'>3</span>
+                        </div>
+                    </div>
+                    
+                    <div class='mb-8'>
+                        <p class='text-[#78D3EB] text-lg mb-2'>2.5 Gbps</p>
+                        <div class='flex items-baseline'>
+                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="enterprisePrice">600</span></span>
+                            <span class='text-[#78D3EB] ml-2'>/mes</span>
+                        </div>
+                    </div>
+
+                    <div class='space-y-4 mb-8'>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>Conexión fibra óptica 2.5 Gbps</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>WiFi 6E mesh system</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>Soporte dedicado 24/7</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>Dispositivos ilimitados</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>IP dedicada + backup</p>
+                        </div>
+                        <div class='flex items-start gap-3'>
+                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
+                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
+                                </svg>
+                            </div>
+                            <p class='text-[#E0E2EA] text-sm'>SLA garantizado 99.9%</p>
+                        </div>
+                    </div>
+
+                    <button class='w-full py-3 px-6 rounded-full border-2 border-[#3E484C] text-[#E0E2EA] font-medium hover:border-[#007E94] hover:text-[#007E94] transition-all duration-300'>
+                        Contactar Ventas
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </section>

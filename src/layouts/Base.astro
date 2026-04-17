@@ -48,8 +48,42 @@ const { title, meta_title, description, image, noindex, canonical } =
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- favicon -->
+    <!-- charset declaration must be first -->
+    <meta charset="UTF-8" />
+    
+    <!-- viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    
+    <!-- title -->
+    <title>
+      {plainify(meta_title ? meta_title : title ? title : config.site.title + " - " + config.metadata.meta_description)}
+    </title>
+    
+    <!-- canonical url -->
+    {canonical ? (
+      <link rel="canonical" href={canonical} item-prop="url" />
+    ) : (
+      <link rel="canonical" href={`${config.site.base_url}${Astro.url.pathname}`} item-prop="url" />
+    )}
+    
+    <!-- noindex robots -->
+    {noindex && <meta name="robots" content="noindex,nofollow" />}
+    
+    <!-- meta-description -->
+    <meta
+      name="description"
+      content={plainify(
+        description ? description : config.metadata.meta_description,
+      )}
+    />
+    
+    <!-- favicon and icons -->
     <link rel="shortcut icon" href={config.site.favicon} />
+    <link rel="apple-touch-icon" sizes="180x180" href={config.site.favicon} />
+    
+    <!-- web app manifest -->
+    <link rel="manifest" href={`${config.site.base_url}/site.webmanifest`} />
+
     <!-- theme meta -->
     <meta name="theme-name" content="violeta" />
     <meta name="msapplication-TileColor" content="#000000" />
@@ -64,34 +98,6 @@ const { title, meta_title, description, image, noindex, canonical } =
       content="#000"
     />
     <meta name="generator" content={Astro.generator} />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-
-    <!-- responsive meta -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=5"
-    />
-
-    <!-- title -->
-    <title>
-      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
-    </title>
-
-    <!-- canonical url -->
-    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
-
-    <!-- noindex robots -->
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
-
-    <!-- meta-description -->
-    <meta
-      name="description"
-      content={plainify(
-        description ? description : config.metadata.meta_description,
-      )}
-    />
-
-    <ClientRouter />
 
     <!-- author from config.json -->
     <meta name="author" content={config.metadata.meta_author} />
@@ -160,6 +166,26 @@ const { title, meta_title, description, image, noindex, canonical } =
       meta_title ? meta_title : title ? title : config.site.title,
     )} />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": plainify(meta_title ? meta_title : title ? title : config.site.title),
+      "description": plainify(description ? description : config.metadata.meta_description),
+      "url": `${config.site.base_url}${Astro.url.pathname}`,
+      "image": `${config.site.base_url}${image ? image : config.metadata.meta_image}`,
+      "publisher": {
+        "@type": "Organization",
+        "name": config.site.title,
+        "url": config.site.base_url,
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${config.site.base_url}${config.site.logo}`
+        }
+      },
+      "inLanguage": "es-MX"
+    }, null, 2)}></script>
   </head>
   <body class="debug-screens bg-[#101419]">
     <!-- <TwSizeIndicator /> -->

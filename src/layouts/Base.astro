@@ -112,9 +112,11 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={config.site.title} />
+    <meta property="og:locale" content="es_MX" />
     <meta
       property="og:url"
-      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
+      content={`${config.site.base_url}${Astro.url.pathname}`}
     />
 
     <!-- twitter-title -->
@@ -149,6 +151,14 @@ const { title, meta_title, description, image, noindex, canonical } =
       }`}
     />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@vigia_telecom" />
+    
+    <!-- Additional Open Graph tags -->
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={plainify(
+      meta_title ? meta_title : title ? title : config.site.title,
+    )} />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   </head>
   <body class="debug-screens bg-[#101419]">

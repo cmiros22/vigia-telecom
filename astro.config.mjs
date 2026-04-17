@@ -10,6 +10,8 @@ import config from "./src/config/config.json";
 
 import vercel from "@astrojs/vercel";
 
+import cloudflare from "@astrojs/cloudflare";
+
 // https://astro.build/config
 export default defineConfig({
   output: "static",
@@ -41,7 +43,7 @@ export default defineConfig({
     extendDefaultPlugins: true,
   },
 
-  adapter: vercel(),
+  adapter: cloudflare(),
   vite: {
     ssr: {
       noExternal: []

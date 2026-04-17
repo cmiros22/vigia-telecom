@@ -8,10 +8,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "pnpm run build && wrangler dev",
+    "astro": "astro",
+    "generate-types": "wrangler types",
+    "deploy": "pnpm run build && wrangler deploy"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^13.1.10",
     "@astrojs/mdx": "^5.0.3",
     "@astrojs/react": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
@@ -42,6 +45,10 @@
     "sass": "^1.99.0",
     "tailwind-bootstrap-grid": "^7.0.0",
     "tailwindcss": "^3.4.19",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "wrangler": "^4.83.0"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

@@ -1,49 +1,49 @@
-<section class='min-h-[90vh] flex items-center justify-center flex-col py-20 px-4 bg-gradient-to-br from-[#0B0F14] via-[#101419] to-[#181C21] relative overflow-hidden'>
+<section class='min-h-[90vh] flex items-center justify-center flex-col py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 md:px-8 bg-gradient-to-br from-[#0B0F14] via-[#101419] to-[#181C21] relative overflow-hidden'>
     <!-- Background decoration -->
-    <div class='absolute inset-0 bg-[url("/images/background_pattern_02.png")] opacity-10'></div>
+    
     <div class='absolute top-0 left-0 w-96 h-96 bg-[#00F5FF] opacity-5 rounded-full blur-3xl'></div>
     <div class='absolute bottom-0 right-0 w-96 h-96 bg-[#007E94] opacity-5 rounded-full blur-3xl'></div>
     
     <div class='relative z-10 w-full max-w-7xl mx-auto'>
         <!-- Header -->
-        <div class='text-center mb-16'>
-            <h1 class='font-bold text-5xl md:text-6xl text-[#E0E2EA] mb-6'>
+        <div class='text-center mb-8 sm:mb-12 md:mb-16'>
+            <h1 class='font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-[#E0E2EA] mb-4 sm:mb-6'>
                 Nuestros <span class='text-transparent bg-clip-text bg-gradient-to-r from-[#00F5FF] to-[#007E94]'>Planes</span>
             </h1>
-            <p class='text-xl text-[#78D3EB] max-w-2xl mx-auto'>
+            <p class='text-base sm:text-lg md:text-xl text-[#78D3EB] max-w-2xl mx-auto px-4'>
                 Conectividad de alta velocidad diseñada para impulsar tu negocio y hogar
             </p>
         </div>
 
         <!-- Billing Toggle -->
-        <div class='flex justify-center mb-12'>
+        <div class='flex justify-center mb-8 sm:mb-12'>
             <div class='bg-[#2a2f34] p-1.5 rounded-full border border-[#3E484C]'>
                 <button id="monthlyBtn" onclick="togglePricing(false)"
-                    class='px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 text-[#78D3EB] hover:text-white'>Mensual</button>
+                    class='px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium cursor-pointer transition-all duration-300 text-[#78D3EB] hover:text-white'>Mensual</button>
                 <button id="annuallyBtn" onclick="togglePricing(true)"
-                    class='px-6 py-2.5 rounded-full text-sm font-medium cursor-pointer transition-all duration-300 bg-gradient-to-r from-[#00F5FF] to-[#007E94] text-[#0B0F14] shadow-lg shadow-[#00F5FF]/30'>Anual <span class='text-xs opacity-75'>Ahorra 20%</span></button>
+                    class='px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium cursor-pointer transition-all duration-300 bg-gradient-to-r from-[#00F5FF] to-[#007E94] text-[#0B0F14]'>Anual <span class='text-xs sm:text-sm opacity-75'>Ahorra 10%</span></button>
             </div>
         </div>
     <!-- Pricing Cards -->
-        <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        <div class='grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto'>
 
             <!-- Basic Plan -->
-            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-8 border border-[#3E484C] hover:border-[#00F5FF]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#00F5FF]/10 hover:-translate-y-2'>
+            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-6 sm:p-8 border border-[#3E484C] hover:border-[#00F5FF]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#00F5FF]/10 hover:-translate-y-2'>
                 <div class='absolute inset-0 bg-gradient-to-t from-[#00F5FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl'></div>
                 
                 <div class='relative z-10'>
-                    <div class='flex items-center justify-between mb-6'>
-                        <h3 class='text-2xl font-bold text-[#E0E2EA]'>Básico</h3>
-                        <div class='w-12 h-12 bg-[#00F5FF]/20 rounded-full flex items-center justify-center'>
-                            <span class='text-[#00F5FF] text-lg'>1</span>
+                    <div class='flex items-center justify-between mb-4 sm:mb-6'>
+                        <h3 class='text-xl sm:text-2xl font-bold text-[#E0E2EA]'>Básico</h3>
+                        <div class='w-10 h-10 sm:w-12 sm:h-12 bg-[#00F5FF]/20 rounded-full flex items-center justify-center'>
+                            <span class='text-[#00F5FF] text-base sm:text-lg'>1</span>
                         </div>
                     </div>
                     
-                    <div class='mb-8'>
-                        <p class='text-[#78D3EB] text-lg mb-2'>500 Mbps</p>
+                    <div class='mb-6 sm:mb-8'>
+                        <p class='text-[#78D3EB] text-base sm:text-lg mb-2'>100 Mbps</p>
                         <div class='flex items-baseline'>
-                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="basicPrice">350</span></span>
-                            <span class='text-[#78D3EB] ml-2'>/mes</span>
+                            <span class='text-3xl sm:text-4xl md:text-5xl font-bold text-[#E0E2EA]'>$<span id="basicPrice">3,780</span></span>
+                            <span class='text-[#78D3EB] ml-2 text-sm sm:text-base' id='basicPeriod'>/anual</span>
                         </div>
                     </div>
 
@@ -54,7 +54,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>Conexión fibra óptica 500 Mbps</p>
+                            <p class='text-[#E0E2EA] text-sm'>Conexión fibra óptica 200 Mbps</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
@@ -62,7 +62,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>WiFi 6 incluido</p>
+                            <p class='text-[#E0E2EA] text-sm'>Uso básico y familiar</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
@@ -70,7 +70,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>Soporte técnico 24/7</p>
+                            <p class='text-[#E0E2EA] text-sm'>Clases en línea y redes sociales</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#00F5FF]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
@@ -78,18 +78,18 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>1 dispositivo conectado</p>
+                            <p class='text-[#E0E2EA] text-sm'>3 a 6 dispositivos conectados</p>
                         </div>
                     </div>
 
                     <button class='w-full py-3 px-6 rounded-full border-2 border-[#3E484C] text-[#E0E2EA] font-medium hover:border-[#00F5FF] hover:text-[#00F5FF] transition-all duration-300'>
-                        Seleccionar Plan
+                        Contactar Ventas
                     </button>
                 </div>
             </div>
 
             <!-- Pro Plan -->
-            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-8 border-2 border-[#00F5FF] shadow-2xl shadow-[#00F5FF]/20 transform scale-105 lg:scale-110 transition-all duration-500 hover:-translate-y-2'>
+            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-6 sm:p-8 border-2 border-[#00F5FF] shadow-2xl shadow-[#00F5FF]/20 transform scale-105 lg:scale-110 transition-all duration-500 hover:-translate-y-2'>
                 <div class='absolute inset-0 bg-gradient-to-t from-[#00F5FF]/10 to-transparent rounded-3xl'></div>
                 
                 <!-- Popular Badge -->
@@ -108,10 +108,10 @@
                     </div>
                     
                     <div class='mb-8'>
-                        <p class='text-[#00F5FF] text-lg mb-2 font-medium'>1000 Mbps</p>
+                        <p class='text-[#00F5FF] text-lg mb-2 font-medium'>200 Mbps</p>
                         <div class='flex items-baseline'>
-                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="proPrice">450</span></span>
-                            <span class='text-[#78D3EB] ml-2'>/mes</span>
+                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="proPrice">4,860</span></span>
+                            <span class='text-[#78D3EB] ml-2' id='proPeriod'>/anual</span>
                         </div>
                     </div>
 
@@ -122,7 +122,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm font-medium'>Conexión fibra óptica 1 Gbps</p>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>Conexión fibra óptica 200 Mbps</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
@@ -130,7 +130,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm font-medium'>WiFi 6E avanzado</p>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>El más equilibrado</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
@@ -138,7 +138,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm font-medium'>Soporte prioritario 24/7</p>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>Gaming y Home Office</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
@@ -146,15 +146,7 @@
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm font-medium'>Hasta 10 dispositivos</p>
-                        </div>
-                        <div class='flex items-start gap-3'>
-                            <div class='w-5 h-5 bg-[#00F5FF] rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#0B0F14]' fill='currentColor' viewBox='0 0 20 20'>
-                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
-                                </svg>
-                            </div>
-                            <p class='text-[#E0E2EA] text-sm font-medium'>IP dedicada</p>
+                            <p class='text-[#E0E2EA] text-sm font-medium'>6 a 10 dispositivos conectados</p>
                         </div>
                     </div>
 
@@ -165,8 +157,8 @@
             </div>
 
             <!-- Enterprise Plan -->
-            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-8 border border-[#3E484C] hover:border-[#007E94]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#007E94]/10 hover:-translate-y-2'>
-                <div class='absolute inset-0 bg-gradient-to-t from-[#007E94]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl'></div>
+            <div class='group relative bg-gradient-to-b from-[#1a1e23] to-[#2a2f34] rounded-3xl p-6 sm:p-8 border border-[#3E484C] hover:border-[#00F5FF]/50 transition-all duration-500 hover:shadow-2xl hover:shadow-[#00F5FF]/10 hover:-translate-y-2'>
+                <div class='absolute inset-0 bg-gradient-to-t from-[#00F5FF]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl'></div>
                 
                 <div class='relative z-10'>
                     <div class='flex items-center justify-between mb-6'>
@@ -177,61 +169,53 @@
                     </div>
                     
                     <div class='mb-8'>
-                        <p class='text-[#78D3EB] text-lg mb-2'>2.5 Gbps</p>
+                        <p class='text-[#78D3EB] text-lg mb-2'>300 Mbps</p>
                         <div class='flex items-baseline'>
-                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="enterprisePrice">600</span></span>
-                            <span class='text-[#78D3EB] ml-2'>/mes</span>
+                            <span class='text-5xl font-bold text-[#E0E2EA]'>$<span id="enterprisePrice">6,480</span></span>
+                            <span class='text-[#78D3EB] ml-2' id='enterprisePeriod'>/anual</span>
                         </div>
                     </div>
 
                     <div class='space-y-4 mb-8'>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>Conexión fibra óptica 2.5 Gbps</p>
+                            <p class='text-[#E0E2EA] text-sm'>Conexión fibra óptica 300 Mbps</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>WiFi 6E mesh system</p>
+                            <p class='text-[#E0E2EA] text-sm'>Máximo rendimiento y velocidad</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>Soporte dedicado 24/7</p>
+                            <p class='text-[#E0E2EA] text-sm'>Gaming profesional (bajo ping)</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>Dispositivos ilimitados</p>
+                            <p class='text-[#E0E2EA] text-sm'>Subidas rápidas (ideal para trabajo, smart home)</p>
                         </div>
                         <div class='flex items-start gap-3'>
                             <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
+                                <svg class='w-3 h-3 text-[#00F5FF]' fill='currentColor' viewBox='0 0 20 20'>
                                     <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
                                 </svg>
                             </div>
-                            <p class='text-[#E0E2EA] text-sm'>IP dedicada + backup</p>
-                        </div>
-                        <div class='flex items-start gap-3'>
-                            <div class='w-5 h-5 bg-[#007E94]/20 rounded-full flex items-center justify-center mt-0.5 shrink-0'>
-                                <svg class='w-3 h-3 text-[#007E94]' fill='currentColor' viewBox='0 0 20 20'>
-                                    <path fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/>
-                                </svg>
-                            </div>
-                            <p class='text-[#E0E2EA] text-sm'>SLA garantizado 99.9%</p>
+                            <p class='text-[#E0E2EA] text-sm'>+10 dispositivos conectados</p>
                         </div>
                     </div>
 
@@ -248,29 +232,40 @@
     let isAnnual = true;
 
     const pricing = {
-        basic: { monthly: 10, annual: 100 },
-        pro: { monthly: 30, annual: 300 },
-        enterprise: { monthly: 50, annual: 500 }
+        basic: { monthly: 350, annual: 3780 },
+        pro: { monthly: 450, annual: 4860 },
+        enterprise: { monthly: 600, annual: 6480 }
     };
 
     function togglePricing(annual) {
         isAnnual = annual;
 
-        // Update prices
-        document.getElementById('basicPrice').textContent = isAnnual ? pricing.basic.annual : pricing.basic.monthly;
-        document.getElementById('proPrice').textContent = isAnnual ? pricing.pro.annual : pricing.pro.monthly;
-        document.getElementById('enterprisePrice').textContent = isAnnual ? pricing.enterprise.annual : pricing.enterprise.monthly;
+        // Format number with thousands separator
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        // Update prices with formatting
+        document.getElementById('basicPrice').textContent = formatNumber(isAnnual ? pricing.basic.annual : pricing.basic.monthly);
+        document.getElementById('proPrice').textContent = formatNumber(isAnnual ? pricing.pro.annual : pricing.pro.monthly);
+        document.getElementById('enterprisePrice').textContent = formatNumber(isAnnual ? pricing.enterprise.annual : pricing.enterprise.monthly);
+
+        // Update period text
+        const periodText = isAnnual ? '/anual' : '/mes';
+        document.getElementById('basicPeriod').textContent = periodText;
+        document.getElementById('proPeriod').textContent = periodText;
+        document.getElementById('enterprisePeriod').textContent = periodText;
 
         // Update button styles
         const monthlyBtn = document.getElementById('monthlyBtn');
         const annuallyBtn = document.getElementById('annuallyBtn');
 
         if (isAnnual) {
-            monthlyBtn.className = 'px-4 py-2 rounded-full text-xs cursor-pointer transition text-white transition';
-            annuallyBtn.className = 'px-4 py-2 rounded-full text-xs cursor-pointer transition bg-[#00F5FF] hover:bg-[#00d4e6] text-gray-600 transition';
+            monthlyBtn.className = 'px-4 py-2 rounded-full text-sm cursor-pointer transition text-white transition';
+            annuallyBtn.className = 'px-4 py-2 rounded-full text-sm cursor-pointer transition bg-[#00F5FF] hover:bg-[#00d4e6] text-gray-600 transition';
         } else {
-            monthlyBtn.className = 'px-4 py-2 rounded-full text-xs cursor-pointer transition bg-[#00F5FF] hover:bg-[#00d4e6] text-gray-600 transition';
-            annuallyBtn.className = 'px-4 py-2 rounded-full text-xs cursor-pointer transition text-white transition';
+            monthlyBtn.className = 'px-4 py-2 rounded-full text-sm cursor-pointer transition bg-[#00F5FF] hover:bg-[#00d4e6] bg-gradient-to-r from-[#00F5FF] to-[#007E94] text-[#0B0F14] transition';
+            annuallyBtn.className = 'px-4 py-2 rounded-full text-sm cursor-pointer transition text-white transition';
         }
     }
 </script>

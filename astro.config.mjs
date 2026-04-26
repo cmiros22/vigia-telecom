@@ -41,8 +41,7 @@ export default defineConfig({
     extendDefaultPlugins: true,
   },
 
-  adapter: vercel(),
-  vite: {
+    vite: {
     ssr: {
       noExternal: []
     }

@@ -1,0 +1,50 @@
+---
+import VelocityIcon from '../../../public/images/icons/bidirectional.svg';
+import WithoutLimitIcon from '../../../public/images/icons/infinity.svg';
+import IPFixedIcon from '../../../public/images/icons/ip.svg';
+---
+
+<section class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 md:px-8 lg:px-16 bg-[#212224]">
+    <div class="flex flex-col justify-center items-center gap-5">
+        <div class="flex flex-col justify-center items-center gap-2">
+            <h2 class="text-2xl sm:text-3xl font-bold text-[#E1E2EB]">El Estándar de Vigia</h2>
+            <div class="border border-1 w-16 border-[#AEC6FF]"></div>
+        </div>
+        <p class="text-[#C4C6D0] text-sm sm:text-base font-light text-center max-w-2xl">Beneficios premium incluidos en cada conexión</p>
+    </div>
+    <div class="grid mt-8 sm:mt-12 p-4 mx-auto items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div class="flex flex-col border-l-[1px] border-[#AEC6FF] border-opacity-20 items-start gap-4 transition-all duration-300 hover:scale-105 hover:bg-opacity-20 hover:shadow-2xl p-6 sm:p-8 md:p-10 lg:p-14">
+            <div class="flex items-start p-4 gap-2 bg-[#AEC6FF] bg-opacity-20 rounded-xl">
+                <VelocityIcon width="24" height="24" class="Network-icon text-[#AEC6FF]" />
+            </div>
+            <div>
+                <h2 class="font-medium text-base text-[#E1E2EB]">Velocidad Simétrica</h2>
+            </div>
+            <p class="text-[#C4C6D0] text-sm/6 max-w-72">
+                Sube contenido tan rápido como lo descargas. Ideal para streaming y videollamadas 4K.
+            </p>
+        </div>
+        <div class="flex flex-col border-l-[1px] border-[#AEC6FF] border-opacity-20 items-start gap-4 transition-all duration-300 hover:scale-105 hover:bg-opacity-20 hover:shadow-2xl p-6 sm:p-8 md:p-10 lg:p-14">
+            <div class="flex items-start p-4 gap-2 bg-[#6EDE74] bg-opacity-20 rounded-xl">
+                <WithoutLimitIcon width="24" height="24" class="Activity-icon text-[#6EDE74]" />
+            </div>
+            <div>
+                <h2 class="font-medium text-base text-[#E1E2EB]">Sin Límites de Datos</h2>
+            </div>
+            <p class="text-[#C4C6D0] text-sm/6 max-w-72">
+                Navega y descarga sin preocuparte por cuotas de consumo mensual. Sin sorpresas.
+            </p>
+        </div>
+        <div class="flex flex-col border-l-[1px] border-[#AEC6FF] border-opacity-20 items-start gap-4 transition-all duration-300 hover:scale-105 hover:bg-opacity-20 hover:shadow-2xl p-6 sm:p-8 md:p-10 lg:p-14">
+            <div class="flex items-start p-4 gap-2 bg-[#AEC6FF] bg-opacity-20 rounded-xl">
+                <IPFixedIcon width="24" height="24" class="Valores-icon text-[#AEC6FF]" />
+            </div>
+            <div>
+                <h2 class="font-medium text-base text-[#E1E2EB]">IP Fija Opcional</h2>
+            </div>
+            <p class="text-[#C4C6D0] text-sm/6 max-w-72">
+                Perfecto para servidores domésticos y acceso remoto empresarial de alta seguridad.
+            </p>
+        </div>
+    </div>
+</section>

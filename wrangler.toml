@@ -1,9 +1,9 @@
 name = "vigia-telcom"
-main = "_worker.js"
+main = "dist/index.html"
 compatibility_date = "2026-04-22"
 
 [site]
-bucket = "dist"
+bucket = "./dist"
 
 [vars]
 # Add any environment variables here

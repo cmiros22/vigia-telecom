@@ -4,7 +4,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-sdk/services/geocoding';
 
-mapboxgl.accessToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
+// Verificar si el token está disponible
+const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
+
+if (!mapboxToken) {
+  console.error('Mapbox token not found. Please set PUBLIC_MAPBOX_TOKEN environment variable.');
+}
+
+mapboxgl.accessToken = mapboxToken || '';
 
 const Maps = () => {
   const mapContainer = useRef(null);
@@ -13,11 +20,17 @@ const Maps = () => {
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
 
-  const geocoder = MapboxGeocoder({ accessToken: mapboxgl.accessToken });
+  // Si no hay token, no inicializar el geocoder
+  const geocoder = mapboxToken ? MapboxGeocoder({ accessToken: mapboxToken }) : null;
 
   const handleSearch = async (query) => {
     if (!query.trim()) {
       setSearchResults([]);
+      return;
+    }
+
+    if (!geocoder) {
+      console.error('Geocoder not initialized - missing Mapbox token');
       return;
     }
 
@@ -473,10 +486,24 @@ const Maps = () => {
     return () => {
       if (map.current) {
         map.current.remove();
-        map.current = null;
       }
     };
   }, []);
+
+  // Si no hay token, mostrar mensaje de error
+  if (!mapboxToken) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-[#1D1D26]">
+        <div className="text-center p-8">
+          <div className="text-red-500 text-xl mb-4">⚠️ Error de Configuración</div>
+          <div className="text-gray-400">
+            <p>No se encontró el token de Mapbox.</p>
+            <p>Por favor, configura la variable de entorno PUBLIC_MAPBOX_TOKEN.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="w-full h-[500px] rounded-lg overflow-hidden relative">

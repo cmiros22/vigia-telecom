@@ -5,73 +5,121 @@ import MapIcon from "/public/images/icons/map-pin.svg";
 import EmailIcon from "/public/images/icons/email.svg";
 import SupportIcon from "/public/images/icons/support.svg";
 import Coverage from "@/layouts/components/coverage.astro";
+
+// Obtener parámetros de URL para mensajes de éxito/error
+const { searchParams } = Astro.url;
+const success = searchParams.get('success');
+const error = searchParams.get('error');
 ---
 
 <Base>
-<section class="flex flex-row bg-[#0c0e13] md:flex-row pb-20 items-center justify-between mt-20 px-4 md:px-16 lg:px-24 xl:px-32">
-    <div class="flex flex-col items-center md:items-start">
-        <div class="flex flex-wrap items-center justify-center p-1.5 rounded-full border border-slate-600 text-white text-xs">
+<section class="flex flex-col lg:flex-row bg-[#0c0e13] pb-20 items-center justify-between mt-20 px-4 md:px-16 lg:px-24 xl:px-32">
+    <div class="flex flex-col items-center text-center lg:text-left lg:items-start mb-8 lg:mb-0">
+        <div class="flex flex-wrap items-center justify-center lg:justify-start p-1.5 rounded-full border border-slate-600 text-white text-xs mb-4">
             <p class="-translate-x-2 text-[#6EDE74] ml-4">CANALES DE ATENCION</p>
         </div>
-        <h1 class="text-center md:text-left text-5xl leading-[68px] md:text-6xl md:leading-[84px] font-medium max-w-xl text-slate-50">
+        <h1 class="text-4xl sm:text-5xl leading-[50px] sm:leading-[68px] md:text-6xl md:leading-[84px] font-medium max-w-2xl text-slate-50 mb-6">
             Conectemos con el futuro hoy.
         </h1>
     </div>
-    <div class="flex flex-col justify-between md:max-w-xs" style="border-left: 2px solid #404658; padding-left: 1.5rem;">
-        <p class="text-center md:text-left text-[#C4C6D0] text-sm font-light max-w-sm md:max-w-md mt-2">
+    <div class="flex flex-col justify-between lg:max-w-xs lg:border-l-2 lg:border-[#404658] lg:pl-6">
+        <p class="text-center lg:text-left text-[#C4C6D0] text-sm font-light max-w-lg lg:max-w-md">
             Estamos aquí para resolver tus dudas y asegurar que tu señal cinética nunca se detenga.
         </p>
     </div>
 </section>
 
-<section class="flex items-center bg-[#0c0e13] justify-center py-12 px-4">
+<!-- Contenedor para mensajes de éxito y error -->
+<div id="message-container" class="max-w-7xl w-full mx-auto px-4 mb-6" style="display: none;"></div>
+
+<!-- Script para manejar mensajes -->
+<script>
+    // Función para mostrar mensaje
+    function showMessage(type, title, message) {
+        const container = document.getElementById('message-container');
+        const isSuccess = type === 'success';
+        
+        container.innerHTML = `
+            <div class="bg-${isSuccess ? 'green' : 'red'}-500/20 border border-${isSuccess ? 'green' : 'red'}-500/50 rounded-lg p-4 text-center">
+                <p class="text-${isSuccess ? 'green' : 'red'}-400 font-medium">${isSuccess ? '✅' : '❌'} ${title}</p>
+                <p class="text-${isSuccess ? 'green' : 'red'}-300 text-sm mt-1">${message}</p>
+            </div>
+        `;
+        
+        container.style.display = 'block';
+        
+        // Ocultar mensaje después de 3 segundos
+        setTimeout(() => {
+            container.style.display = 'none';
+        }, 3000);
+        
+        // Limpiar URL parameters
+        const url = new URL(window.location.href);
+        url.searchParams.delete('success');
+        url.searchParams.delete('error');
+        window.history.replaceState({}, '', url.toString());
+    }
+    
+    // Verificar si hay parámetros de éxito/error al cargar la página
+    const urlParams = new URLSearchParams(window.location.search);
+    const success = urlParams.get('success');
+    const error = urlParams.get('error');
+    
+    if (success === 'true') {
+        showMessage('success', '¡Mensaje enviado correctamente!', 'Nos pondremos en contacto contigo pronto.');
+    } else if (error === 'true') {
+        showMessage('error', 'Error al enviar el mensaje', 'Por favor, inténtalo de nuevo más tarde.');
+    }
+</script>
+
+<section class="flex items-center bg-[#0c0e13] justify-center py-12 px-4 mb-4 lg:mb-6">
     <div class="grid md:grid-cols-2 md:gap-10 lg:gap-20 max-w-7xl w-full items-center">
         <div class="p-5 bg-[#1D1D26] rounded-xl">
             <h1 class="text-lg font-semibold text-[#E2E2E9] text-center md:text-start mb-6 tracking-tight">
                 Envíanos un mensaje
             </h1>
-            <form>
-                <div class="grid grid-cols-2 gap-4 mb-5">
+            <form action="/api/contact" method="POST">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
                     <div>
                         <label class="block text-sm text-[#E2E2E9] mb-2">NOMBRE</label>
-                        <input type="text" placeholder="Juan" class="bg-[#33353B] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors" />
+                        <input type="text" name="firstName" placeholder="Juan" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors" />
                     </div>
                     <div>
                         <label class="block text-sm text-[#E2E2E9] mb-2">APELLIDO</label>
-                        <input type="text" placeholder="Pérez" class="bg-[#33353B] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors" />  
+                        <input type="text" name="lastName" placeholder="Pérez" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors" />  
                     </div>
                 </div>
 
                 <div class="mb-5">
                     <label class="block text-sm text-[#E2E2E9] mb-2">CORREO ELECTRONICO</label>
-                    <input type="email" placeholder="ejemplo@company.com" class="bg-[#33353B] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/>
+                    <input type="email" name="email" placeholder="ejemplo@company.com" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/>
                 </div>
 
                 <div class="mb-5">
-                    <label class="block text-sm text-gray-500 mb-2">TELEFONO</label>
+                    <label class="block text-sm text-[#E2E2E9] mb-2">TELEFONO</label>
                     <div class="bg-[#33353B] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors">
-                        <input type="tel" placeholder="+52 342 123 4562" class="bg-[#33353B] flex-1 text-sm outline-none border-none" />
+                        <input type="tel" name="phone" placeholder="+52 342 123 4562" class="bg-[#33353B] text-[#E2E2E9] w-full flex-1 text-sm outline-none border-none" />
                     </div>
                 </div>
 
                 <div class="mb-5">
                     <label class="block text-sm text-[#E2E2E9] mb-2">ASUNTO</label>
-                    <input type="email" placeholder="Soporte Técnico" class="bg-[#33353B] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/>
+                    <input type="text" name="subject" placeholder="Soporte Técnico" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/>
                 </div>
 
                 <div class="mb-5">
                     <label class="block text-sm text-[#E2E2E9] mb-2">TU MENSAJE</label>
-                    <textarea placeholder="¿En qué podemos ayudarte?" rows="4" class="bg-[#33353B] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors" ></textarea>
+                    <textarea name="message" placeholder="¿En qué podemos ayudarte?" rows="4" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors" ></textarea>
                 </div>
 
-                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-[#6EDE74] to-[#006E20] text-white rounded-lg text-sm cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(99,102,241,0.3)]" >
+                <button type="submit" class="w-full py-3.5 bg-gradient-to-r from-[#393f39] to-[#006E20] text-white rounded-lg text-sm cursor-pointer transition-all hover:-translate-y-0.5 hover:shadow-[0_10px_20px_rgba(99,102,241,0.3)]" >
                     Enviar Consulta
                 </button>
             </form>
         </div>
 
-        <div class="rounded-3xl md:p-10 mt-10 gap-16 relative min-h-[662px] w-full max-w-full flex md:flex flex-col overflow-hidden">
-            <div class="rounded-lg bg-[#004494] ">
+        <div class="rounded-3xl md:p-10 mt-6 gap-8 relative min-h-[400px] w-full max-w-full flex flex-col overflow-hidden">
+            <div class="rounded-lg bg-[#004494] mb-6">
                 <div class="p-7">
                     <div class="flex flex-row gap-3 mb-6 items-center">
                         <div class="flex items-center justify-center p-2 bg-[#AEC6FF] bg-opacity-20 rounded-xl w-12 h-12 border border-[#AEC6FF]">

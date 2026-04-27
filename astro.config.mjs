@@ -2,6 +2,7 @@ import mdx from "@astrojs/mdx";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import cloudflare from "@astrojs/cloudflare";
 import AutoImport from "astro-auto-import";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
@@ -10,10 +11,11 @@ import config from "./src/config/config.json";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
+  output: "server",
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
+  adapter: cloudflare(),
 
   integrations: [
     react(),
@@ -41,7 +43,7 @@ export default defineConfig({
 
     vite: {
     ssr: {
-      noExternal: ["@mapbox/mapbox-sdk", "@mapbox/mapbox-sdk/services/geocoding"]
+      noExternal: ["@mapbox/mapbox-sdk", "@mapbox/mapbox-sdk/services/geocoding", "nodemailer"]
     },
     define: {
       global: 'globalThis'

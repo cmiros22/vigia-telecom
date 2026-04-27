@@ -1,8 +1,3 @@
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
-
-dotenv.config();
-
 interface ISendEmail {
   email: string;
   html: string;
@@ -15,40 +10,47 @@ interface ISendEmail {
 
 async function sendEmail(props: ISendEmail) {
   // Debug: Verificar variables de entorno
-  console.log('EMAIL_HOST:', process.env.EMAIL_HOST);
-  console.log('EMAIL:', process.env.EMAIL);
-  console.log('EMAIL_PASS:', process.env.EMAIL_PASS ? '*** SET ***' : 'NOT SET');
-  console.log('EMAIL_PORT:', process.env.EMAIL_PORT);
+  console.log('RESEND_API_KEY:', process.env.RESEND_API_KEY ? '*** SET ***' : 'NOT SET');
   
-  let transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
-    port: parseInt(process.env.EMAIL_PORT || '587'),
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.EMAIL_PASS,
-    },
-    tls: {
-      rejectUnauthorized: false // permite conexiones TLS con certificados auto-firmados
-    }
-  });
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY is not set');
+  }
 
-  let message = {
-    from: "cmiros.22@gmail.com",
-    to: "cmiros.22@gmail.com",
-    subject: props.subject,
-    name: props.name,
-    html: `<h1>Contact Form</h1><br>
-      <b>Name</b>: ${props.name}<br> 
-      <b>Email</b>: ${props.email}<br>
-      <b>Message</b>: ${props.html}<br>
-      <b>Mobile</b>: ${props.mobile}<br>
-      <b>Role</b>: ${props.role}<br>
-      <b>Website</b>: ${props.website}<br>`
+  // Usando Resend API para envío de correos
+  const emailData = {
+    from: 'onboarding@resend.dev', // Email de verificación de Resend
+    to: 'cmiros.22@gmail.com',
+    subject: props.subject || `Nuevo contacto de ${props.name}`,
+    html: `
+      <h2>Nuevo mensaje de contacto</h2>
+      <p><strong>Nombre:</strong> ${props.name}</p>
+      <p><strong>Email:</strong> ${props.email}</p>
+      <p><strong>Teléfono:</strong> ${props.mobile}</p>
+      <p><strong>Asunto:</strong> ${props.subject}</p>
+      <p><strong>Mensaje:</strong></p>
+      <p>${props.html}</p>
+      <hr>
+      <p><em>Enviado desde Vigia Telecom Website</em></p>
+    `
   };
 
-  let info = await transporter.sendMail(message);
-  return info;
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${process.env.RESEND_API_KEY}`,
+    },
+    body: JSON.stringify(emailData),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(`Failed to send email: ${response.statusText} - ${JSON.stringify(errorData)}`);
+  }
+
+  const result = await response.json();
+  console.log('Email sent successfully:', result);
+  return { success: true, message: 'Email sent successfully', data: result };
 }
 
 export { sendEmail };

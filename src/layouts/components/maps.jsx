@@ -3,16 +3,22 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 
-// Verificar si el token está disponible
-const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
-
-if (!mapboxToken) {
-  console.error('Mapbox token not found. Please set PUBLIC_MAPBOX_TOKEN environment variable.');
-}
-
-mapboxgl.accessToken = mapboxToken || '';
-
 const Maps = () => {
+  // Verificar si el token está disponible
+  const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
+
+  useEffect(() => {
+    console.log('Mapbox token from env:', import.meta.env.PUBLIC_MAPBOX_TOKEN);
+    console.log('Mapbox token variable:', mapboxToken);
+    
+    if (!mapboxToken) {
+      console.error('Mapbox token not found. Please set PUBLIC_MAPBOX_TOKEN environment variable.');
+    } else {
+      console.log('Setting Mapbox access token...');
+      mapboxgl.accessToken = mapboxToken;
+      console.log('Mapbox access token set:', mapboxgl.accessToken);
+    }
+  }, [mapboxToken]);
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [searchQuery, setSearchQuery] = useState('');
@@ -517,7 +523,7 @@ const Maps = () => {
     <div className="w-full h-[500px] rounded-lg overflow-hidden relative">
       {/* Barra de búsqueda */}
       <div className="absolute top-4 left-4 right-4 z-10">
-        <div className="w-2/3 bg-white rounded-2xl shadow-lg p-2">
+        <div className="w-3/4 bg-white rounded-2xl shadow-lg p-2">
           <div className="relative">
             <input
               type="text"

@@ -1,5 +1,6 @@
 import { sendEmail } from '../../utils/email.ts';
-import 'dotenv/config';
+
+export const prerender = false;
 
 export async function POST({ request }) {
   let errors = { firstName: "", lastName: "", email: "", phone: "", subject: "", message: "" };

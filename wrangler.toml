@@ -4,4 +4,7 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./dist"
 
 [vars]
+# Variables configuradas en Cloudflare Pages Dashboard
+# PUBLIC_MAPBOX_TOKEN = "pk.xxxxxxxxxxxx"
+# RESEND_API_KEY = "re_xxxxxxxxxxxx"
 

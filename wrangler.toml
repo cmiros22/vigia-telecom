@@ -1,8 +1,8 @@
 name = "vigia-telecom"
 compatibility_date = "2026-04-22"
 
-[assets]
-directory = "./dist"
+[site]
+bucket = "./dist"
 
 [vars]
 PUBLIC_MAPBOX_TOKEN = "xxx"

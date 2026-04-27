@@ -4,4 +4,4 @@ compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "./dist"
 
 [vars]
-PUBLIC_MAPBOX_TOKEN = "pk.eyJ1IjoiY21pcm9zOTgiLCJhIjoiY21vZjRocGpxMGp0NDJycHlhcXlhMGU0aiJ9.rz2gIDkrwqq8gZSKQdZdoQ"
+PUBLIC_MAPBOX_TOKEN = "XXXX"

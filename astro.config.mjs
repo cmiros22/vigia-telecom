@@ -7,12 +7,13 @@ import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import config from "./src/config/config.json";
-
+import cloudflare from "@astrojs/cloudflare";
 import vercel from "@astrojs/vercel";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "static",
+  adapter: cloudflare(),
+  output: "server",
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
@@ -43,7 +44,10 @@ export default defineConfig({
 
     vite: {
     ssr: {
-      noExternal: []
+      noExternal: ["@mapbox/mapbox-sdk", "@mapbox/mapbox-sdk/services/geocoding"]
+    },
+    define: {
+      global: 'globalThis'
     }
   }
 });

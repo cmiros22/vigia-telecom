@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-sdk/services/geocoding';
 
 // Verificar si el token está disponible
 const mapboxToken = import.meta.env.PUBLIC_MAPBOX_TOKEN;
@@ -19,9 +18,18 @@ const Maps = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+  const [geocoder, setGeocoder] = useState(null);
 
-  // Si no hay token, no inicializar el geocoder
-  const geocoder = mapboxToken ? MapboxGeocoder({ accessToken: mapboxToken }) : null;
+  // Importar geocoder dinámicamente solo en el cliente
+  useEffect(() => {
+    if (mapboxToken && typeof window !== 'undefined') {
+      import('@mapbox/mapbox-sdk/services/geocoding').then(({ default: MapboxGeocoder }) => {
+        setGeocoder(MapboxGeocoder({ accessToken: mapboxToken }));
+      }).catch(err => {
+        console.error('Error loading geocoder:', err);
+      });
+    }
+  }, [mapboxToken]);
 
   const handleSearch = async (query) => {
     if (!query.trim()) {

@@ -1,9 +1,8 @@
 name = "vigia-telecom"
-main = "src/entrypoint.js"
 compatibility_date = "2026-04-22"
 
-[site]
-bucket = "./dist"
+[assets]
+directory = "./dist"
 
 [vars]
-# Add any environment variables here
+PUBLIC_MAPBOX_TOKEN = "xxx"

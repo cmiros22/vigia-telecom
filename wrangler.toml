@@ -1,5 +1,4 @@
 name = "vigia-telecom"
-main = "workers-site/index.js"
 compatibility_date = "2026-04-22"
 
 [site]

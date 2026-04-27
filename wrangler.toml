@@ -1,5 +1,5 @@
 name = "vigia-telecom"
-main = "_worker.js"
+main = "src/entrypoint.js"
 compatibility_date = "2026-04-22"
 
 [site]

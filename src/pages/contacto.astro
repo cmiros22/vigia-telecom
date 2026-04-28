@@ -40,9 +40,9 @@ const error = searchParams.get('error');
         const isSuccess = type === 'success';
         
         container.innerHTML = `
-            <div class="bg-${isSuccess ? 'green' : 'red'}-500/20 border border-${isSuccess ? 'green' : 'red'}-500/50 rounded-lg p-4 text-center">
-                <p class="text-${isSuccess ? 'green' : 'red'}-400 font-medium">${isSuccess ? '✅' : '❌'} ${title}</p>
-                <p class="text-${isSuccess ? 'green' : 'red'}-300 text-sm mt-1">${message}</p>
+            <div class="${isSuccess ? 'bg-green-500/20 border-green-500/50' : 'bg-red-500/20 border-red-500/50'} border rounded-lg p-4 text-center">
+                <p class="${isSuccess ? 'text-green-400' : 'text-red-400'} font-medium">${isSuccess ? '✅' : '❌'} ${title}</p>
+                <p class="${isSuccess ? 'text-green-300' : 'text-red-300'} text-sm mt-1">${message}</p>
             </div>
         `;
         
@@ -78,7 +78,7 @@ const error = searchParams.get('error');
             <h1 class="text-lg font-semibold text-[#E2E2E9] text-center md:text-start mb-6 tracking-tight">
                 Envíanos un mensaje
             </h1>
-            <form action="/api/contact" method="POST">
+            <form action="https://node-api.carlos-miros.workers.dev/api/contact" method="POST">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
                     <div>
                         <label class="block text-sm text-[#E2E2E9] mb-2">NOMBRE</label>

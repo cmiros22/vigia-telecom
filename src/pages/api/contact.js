@@ -59,7 +59,7 @@ export async function POST({ request }) {
     return new Response(null, {
       status: 302,
       headers: {
-        'Location': '/contacto?error=true'
+        'Location': 'http://localhost:4323/contacto?error=true'
       }
     });
   }

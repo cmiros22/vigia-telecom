@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
+import fiberNetworkData from '../../data/fiber-network.json';
 
 const Maps = () => {
   // Verificar si el token está disponible
@@ -188,13 +189,10 @@ const Maps = () => {
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v12',
-        center: [-95.2915, 18.4628], // Centro ajustado dentro de los límites
-        zoom: 2,
-        maxBounds: [
-          [-95.310, 18.430], // Suroeste (área más amplia)
-          [-95.270, 18.500]  // Noreste (área más amplia)
-        ],
-        maxBoundsViscosity: 1.0
+        center: fiberNetworkData.mapConfig.center,
+        zoom: fiberNetworkData.mapConfig.zoom,
+        maxBounds: fiberNetworkData.mapConfig.maxBounds,
+        maxBoundsViscosity: fiberNetworkData.mapConfig.maxBoundsViscosity
       });
 
       console.log('Map instance created');
@@ -217,24 +215,13 @@ const Maps = () => {
           height: 50px;
           cursor: pointer;
           border-radius: 100%;
-          animation: pop-in 0.4s ease-out forwards, wobble 1.8s ease-in-out 0.4s forwards;
-          transform-origin: bottom center;
+          animation: pulse 2s infinite;
         }
         
-        @keyframes pop-in {
+        @keyframes pulse {
           0% {
-            width: 0px;
-            height: 0px;
-            opacity: 0;
-            box-shadow: none;
-          }
-          70% {
-            width: 55px;
-            height: 55px;
+            transform: scale(1);
             opacity: 1;
-            box-shadow: 0px 0px 10px rgba(110, 222, 116, 0.5);
-          }
-          85% {
             width: 47px;
             height: 47px;
             box-shadow: 0px 0px 5px rgba(110, 222, 116, 0.3);
@@ -263,16 +250,76 @@ const Maps = () => {
             transform: rotate(0deg);
           }
         }
+        
+        .fiber-pole-marker {
+          background-image: url('/images/icons/fiber-pole.svg');
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 30px;
+          height: 40px;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+        }
+        
+        .fiber-pole-marker:hover {
+          transform: scale(1.2);
+        }
+        
+        .fiber-active-marker {
+          background-image: url('/images/icons/fiber-pole-active.svg');
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 35px;
+          height: 45px;
+          cursor: pointer;
+          animation: glow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glow {
+          from {
+            filter: drop-shadow(0 0 5px #3B82F6);
+          }
+          to {
+            filter: drop-shadow(0 0 15px #3B82F6);
+          }
+        }
       `;
       document.head.appendChild(officeStyle);
 
       const officeMarker = new mapboxgl.Marker(officeMarkerEl)
-        .setLngLat([-95.2994972, 18.4635307])
+        .setLngLat(fiberNetworkData.office.coords)
         .addTo(map.current);
 
       const popup = new mapboxgl.Popup()
-        .setHTML('<h1 class="text-lg font-bold text-green-600">Oficina Vigia Telecom</h1><p class="text-sm">Santiago Tuxtla, Veracruz</p><p class="text-xs text-gray-600">Centro de operaciones principal</p>');
+        .setHTML(`<h1 class="text-lg font-bold text-green-600">${fiberNetworkData.office.name}</h1><p class="text-sm">${fiberNetworkData.office.description}</p><p class="text-xs text-gray-600">${fiberNetworkData.office.subtitle}</p>`);
       officeMarker.setPopup(popup);
+
+      // Agregar marcadores de postes de fibra óptica desde JSON
+      const fiberPoles = fiberNetworkData.fiberPoles;
+
+      fiberPoles.forEach(pole => {
+        const poleMarkerEl = document.createElement('div');
+        const poleMarkerInner = document.createElement('div');
+        poleMarkerInner.className = pole.type === 'active' ? 'fiber-active-marker' : 'fiber-pole-marker';
+        poleMarkerEl.appendChild(poleMarkerInner);
+
+        const poleMarker = new mapboxgl.Marker(poleMarkerEl)
+          .setLngLat(pole.coords)
+          .addTo(map.current);
+
+        const polePopup = new mapboxgl.Popup()
+          .setHTML(`
+            <div class="p-2">
+              <h3 class="text-sm font-bold text-blue-600">${pole.name}</h3>
+              <p class="text-xs text-gray-600">Estado: <span class="font-semibold ${pole.status === 'Activo' ? 'text-green-500' : 'text-yellow-500'}">${pole.status}</span></p>
+              <p class="text-xs text-gray-600">Conexiones: ${pole.connections}</p>
+              <p class="text-xs text-gray-500">Poste de fibra óptica</p>
+            </div>
+          `);
+        poleMarker.setPopup(polePopup);
+      });
       console.log('Animated office marker added');
 
       // Asegurar que el mapa se renderice completamente
@@ -280,187 +327,8 @@ const Maps = () => {
         console.log('Map loaded successfully');
         map.current.resize();
 
-        // Agregar GeoJSON layer para el área de cobertura con múltiples polígonos
-        const coverageArea = {
-          type: 'FeatureCollection',
-          features: [
-            // Polígono 1 - Área principal
-            {
-              type: 'Feature',
-              geometry: {
-                type: 'Polygon',
-                coordinates: [
-                  [
-                    [-95.3165831584606, 18.44810747665089],
-                    [-95.31569475847816, 18.449712300660806],
-                    [-95.31524399174872, 18.450547133059587],
-                    [-95.31495473672636, 18.451010444460763],
-                    [-95.3147509141088, 18.451345152278407],
-                    [-95.31439385053956, 18.45173342676965],
-                    [-95.31344336972298, 18.45279977234634],
-                    [-95.31400884858272, 18.453499133895463],
-                    [-95.31606318317459, 18.453064579481463],
-                    [-95.31673603143807, 18.453071369403105],
-                    [-95.31768804015151, 18.45199855852701],
-                    [-95.31830551309358, 18.4509815390371],
-                    [-95.31812187582037, 18.45019281029947],
-                    [-95.31734172109323, 18.449070789134154],
-                    [-95.31729138853001, 18.448891742525575],
-                    [-95.3170397257151, 18.44745936293681],
-                    [-95.31691389430745, 18.44736387053993],
-                    [-95.31658329699836, 18.448107167273605]
-                  ]
-                ]
-              },
-              properties: {
-                name: 'Área de Cobertura Principal',
-                description: 'Zona de cobertura principal'
-              }
-            },
-            // Polígono 2 - Área secundaria
-            {
-              type: 'Feature',
-              geometry: {
-                type: 'Polygon',
-                coordinates: [
-                  [
-                    [-95.32600781434816,18.427280658836267],
-                    [-95.32396574099043,18.428534975395493],
-                    [-95.32376938778305,18.42872125925257],
-                    [-95.32297088473914,18.42991347115928],
-                    [-95.32117752544436,18.42966509436019],
-                    [-95.32112516458925,18.42935462285743],
-                    [-95.32140005907952,18.429019313003806],
-                    [-95.32105971352024,18.42875851599989],
-                    [-95.32085027009897,18.428497718599672],
-                    [-95.31954124871574,18.42875851599989],
-                    [
-                      -95.31867729460285,
-                      18.428460461795765
-                    ],
-                    [
-                      -95.3184547609677,
-                      18.428013379521317
-                    ],
-                    [
-                      -95.3183107686158,
-                      18.426982602070595
-                    ],
-                    [
-                      -95.31876892609961,
-                      18.42627471518294
-                    ],
-                    [
-                      -95.31921399336993,
-                      18.426013914015797
-                    ],
-                    [
-                      -95.31929253465282,
-                      18.425715855055373
-                    ],
-                    [
-                      -95.31978996277867,
-                      18.424958286205182
-                    ],
-                    [
-                      -95.32023503004858,
-                      18.424523614046578
-                    ],
-                    [
-                      -95.32039211261475,
-                      18.424387002569347
-                    ],
-                    [
-                      -95.32087645052631,
-                      18.425293603976556
-                    ],
-                    [
-                      -95.32116443523088,
-                      18.42567859764877
-                    ],
-                    [
-                      -95.32151787100405,
-                      18.426734221038828
-                    ],
-                    [
-                      -95.32172731442533,
-                      18.428299015553193
-                    ],
-                    [
-                      -95.32171422421146,
-                      18.42882061056011
-                    ],
-                    [
-                      -95.32231637404794,
-                      18.428833029469615
-                    ],
-                    [
-                      -95.32218547190955,
-                      18.426982602070595
-                    ],
-                    [
-                      -95.32206765998502,
-                      18.426088428675513
-                    ],
-                    [
-                      -95.3220152991299,
-                      18.425268765645384
-                    ],
-                    [
-                      -95.32229019362018,
-                      18.42396474822884
-                    ],
-                    [
-                      -95.32329814008494,
-                      18.423927490442935
-                    ],
-                    [
-                      -95.3237301171414,
-                      18.423455557791144
-                    ],
-                    [
-                      -95.3247904244617,
-                      18.423815717036803
-                    ],
-                    [
-                      -95.32387410949369,
-                      18.42574069332194
-                    ],
-                    [
-                      -95.32404428227332,
-                      18.426212619702596
-                    ],
-                    [
-                      -95.32429299633625,
-                      18.42641132515989
-                    ],
-                    [
-                      -95.32416209419785,
-                      18.426920506846656
-                    ],
-                    [
-                      -95.32496059724133,
-                      18.427019859194658
-                    ],
-                    [
-                      -95.32518313087648,
-                      18.426696963852876
-                    ],
-                    [
-                      -95.32602090456162,
-                      18.427268239814666
-                    ]
-                  ]
-                ]
-              },
-              properties: {
-                name: 'Área de Cobertura Secundaria',
-                description: 'Zona de cobertura secundaria'
-              }
-            }
-            // Agrega más polígonos aquí siguiendo el mismo formato
-          ]
-        };
+        // Agregar GeoJSON layer para el área de cobertura desde JSON
+        const coverageArea = fiberNetworkData.coverageArea;
 
         // Agregar el layer al mapa
         map.current.addLayer({
@@ -472,8 +340,8 @@ const Maps = () => {
           },
           layout: {},
           paint: {
-            'fill-color': '#6EDE74',
-            'fill-opacity': 0.2
+            'fill-color': '#3B82F6',
+            'fill-opacity': 0.5
           }
         });
 
@@ -487,8 +355,108 @@ const Maps = () => {
           },
           layout: {},
           paint: {
-            'line-color': '#6EDE74',
+            'line-color': '#3B82F6',
             'line-width': 2
+          }
+        });
+
+        // Agregar líneas de cableado de fibra óptica entre postes desde JSON
+        const fiberCables = {
+          type: 'FeatureCollection',
+          features: fiberNetworkData.fiberCables.map(cable => ({
+            type: 'Feature',
+            geometry: {
+              type: 'LineString',
+              coordinates: cable.coordinates
+            },
+            properties: {
+              name: cable.name,
+              capacity: cable.capacity,
+              status: cable.status
+            }
+          }))
+        };
+
+        // Agregar layer de cables de fibra
+        map.current.addLayer({
+          id: 'fiber-cables',
+          type: 'line',
+          source: {
+            type: 'geojson',
+            data: fiberCables
+          },
+          layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          paint: {
+            'line-color': [
+              'match',
+              ['get', 'status'],
+              'active',
+              '#2563EB',
+              'maintenance',
+              '#F59E0B',
+              'backup',
+              '#6B7280',
+              '#3B82F6'
+            ],
+            'line-width': [
+              'match',
+              ['get', 'capacity'],
+              '1Gbps',
+              4,
+              '500Mbps',
+              3,
+              '250Mbps',
+              2,
+              '100Mbps',
+              1.5,
+              2
+            ],
+            'line-opacity': 0.8
+          }
+        });
+
+        // Agregar efecto de animación para cables activos
+        map.current.addLayer({
+          id: 'fiber-cables-glow',
+          type: 'line',
+          source: {
+            type: 'geojson',
+            data: fiberCables
+          },
+          layout: {
+            'line-join': 'round',
+            'line-cap': 'round'
+          },
+          paint: {
+            'line-color': [
+              'match',
+              ['get', 'status'],
+              'active',
+              '#60A5FA',
+              'maintenance',
+              '#FCD34D',
+              'backup',
+              '#9CA3AF',
+              '#93C5FD'
+            ],
+            'line-width': [
+              'match',
+              ['get', 'capacity'],
+              '1Gbps',
+              2,
+              '500Mbps',
+              1.5,
+              '250Mbps',
+              1,
+              '100Mbps',
+              0.8,
+              1
+            ],
+            'line-opacity': 0.4,
+            'line-blur': 1
           }
         });
       });

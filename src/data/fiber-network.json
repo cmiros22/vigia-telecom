@@ -1,0 +1,291 @@
+{
+  "mapConfig": {
+    "center": [-95.2915, 18.4628],
+    "zoom": 2,
+    "maxBounds": [
+      [-95.3242, 18.4243],
+      [-95.270, 18.500]
+    ],
+    "maxBoundsViscosity": 1.0
+  },
+  "fiberPoles": [
+    {
+      "id": "main-center",
+      "coords": [-95.295, 18.465],
+      "type": "active",
+      "name": "Poste Principal - Centro",
+      "status": "Activo",
+      "connections": 45,
+      "capacity": "1Gbps"
+    },
+    {
+      "id": "north",
+      "coords": [-95.300, 18.468],
+      "type": "active",
+      "name": "Poste Norte",
+      "status": "Activo",
+      "connections": 32,
+      "capacity": "1Gbps"
+    },
+    {
+      "id": "south",
+      "coords": [-95.292, 18.462],
+      "type": "active",
+      "name": "Poste Sur",
+      "status": "Activo",
+      "connections": 28,
+      "capacity": "1Gbps"
+    },
+    {
+      "id": "east-1",
+      "coords": [-95.305, 18.460],
+      "type": "regular",
+      "name": "Poste Este-1",
+      "status": "En mantenimiento",
+      "connections": 15,
+      "capacity": "500Mbps"
+    },
+    {
+      "id": "west-1",
+      "coords": [-95.288, 18.470],
+      "type": "regular",
+      "name": "Poste Oeste-1",
+      "status": "Activo",
+      "connections": 22,
+      "capacity": "500Mbps"
+    },
+    {
+      "id": "center-2",
+      "coords": [-95.298, 18.455],
+      "type": "regular",
+      "name": "Poste Centro-2",
+      "status": "Activo",
+      "connections": 18,
+      "capacity": "250Mbps"
+    },
+    {
+      "id": "west-2",
+      "coords": [-95.285, 18.465],
+      "type": "regular",
+      "name": "Poste Oeste-2",
+      "status": "Activo",
+      "connections": 12,
+      "capacity": "250Mbps"
+    },
+    {
+      "id": "north-2",
+      "coords": [-95.310, 18.475],
+      "type": "regular",
+      "name": "Poste Norte-2",
+      "status": "Activo",
+      "connections": 25,
+      "capacity": "250Mbps"
+    }
+  ],
+  "fiberCables": [
+    {
+      "id": "main-north",
+      "from": "main-center",
+      "to": "north",
+      "name": "Cable Principal-Norte",
+      "capacity": "1Gbps",
+      "status": "active",
+      "coordinates": [
+        [-95.295, 18.465],
+        [-95.300, 18.468]
+      ]
+    },
+    {
+      "id": "main-south",
+      "from": "main-center",
+      "to": "south",
+      "name": "Cable Principal-Sur",
+      "capacity": "1Gbps",
+      "status": "active",
+      "coordinates": [
+        [-95.295, 18.465],
+        [-95.292, 18.462]
+      ]
+    },
+    {
+      "id": "main-east-1",
+      "from": "main-center",
+      "to": "east-1",
+      "name": "Cable Principal-Este1",
+      "capacity": "500Mbps",
+      "status": "maintenance",
+      "coordinates": [
+        [-95.295, 18.465],
+        [-95.305, 18.460]
+      ]
+    },
+    {
+      "id": "main-west-1",
+      "from": "main-center",
+      "to": "west-1",
+      "name": "Cable Principal-Oeste1",
+      "capacity": "500Mbps",
+      "status": "active",
+      "coordinates": [
+        [-95.295, 18.465],
+        [-95.288, 18.470]
+      ]
+    },
+    {
+      "id": "north-north-2",
+      "from": "north",
+      "to": "north-2",
+      "name": "Cable Norte-Norte2",
+      "capacity": "250Mbps",
+      "status": "active",
+      "coordinates": [
+        [-95.300, 18.468],
+        [-95.310, 18.475]
+      ]
+    },
+    {
+      "id": "south-center-2",
+      "from": "south",
+      "to": "center-2",
+      "name": "Cable Sur-Centro2",
+      "capacity": "250Mbps",
+      "status": "active",
+      "coordinates": [
+        [-95.292, 18.462],
+        [-95.298, 18.455]
+      ]
+    },
+    {
+      "id": "west-1-west-2",
+      "from": "west-1",
+      "to": "west-2",
+      "name": "Cable Oeste1-Oeste2",
+      "capacity": "250Mbps",
+      "status": "active",
+      "coordinates": [
+        [-95.288, 18.470],
+        [-95.285, 18.465]
+      ]
+    },
+    {
+      "id": "backup-north-center",
+      "from": "north",
+      "to": "center-2",
+      "name": "Cable Redundancia Norte-Centro",
+      "capacity": "100Mbps",
+      "status": "backup",
+      "coordinates": [
+        [-95.300, 18.468],
+        [-95.298, 18.455]
+      ]
+    },
+    {
+      "id": "backup-south-west",
+      "from": "south",
+      "to": "west-2",
+      "name": "Cable Redundancia Sur-Oeste",
+      "capacity": "100Mbps",
+      "status": "backup",
+      "coordinates": [
+        [-95.292, 18.462],
+        [-95.285, 18.465]
+      ]
+    }
+  ],
+  "office": {
+    "name": "Oficina Vigia Telecom",
+    "coords": [-95.2994972, 18.4635307],
+    "description": "Santiago Tuxtla, Veracruz",
+    "subtitle": "Centro de operaciones principal"
+  },
+  "coverageArea": {
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-95.3165831584606, 18.44810747665089],
+              [-95.31569475847816, 18.449712300660806],
+              [-95.31524399174872, 18.450547133059587],
+              [-95.31495473672636, 18.451010444460763],
+              [-95.3147509141088, 18.451345152278407],
+              [-95.31439385053956, 18.45173342676965],
+              [-95.31344336972298, 18.45279977234634],
+              [-95.31400884858272, 18.453499133895463],
+              [-95.31606318317459, 18.453064579481463],
+              [-95.31673603143807, 18.453071369403105],
+              [-95.31768804015151, 18.45199855852701],
+              [-95.31830551309358, 18.4509815390371],
+              [-95.31812187582037, 18.45019281029947],
+              [-95.31734172109323, 18.449070789134154],
+              [-95.31729138853001, 18.448891742525575],
+              [-95.3170397257151, 18.44745936293681],
+              [-95.31691389430745, 18.44736387053993],
+              [-95.31658329699836, 18.448107167273605]
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Área de Cobertura Principal",
+          "description": "Zona de cobertura principal"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [-95.32600781434816, 18.427280658836267],
+              [-95.32396574099043, 18.428534975395493],
+              [-95.32376938778305, 18.42872125925257],
+              [-95.32297088473914, 18.42991347115928],
+              [-95.32117752544436, 18.42966509436019],
+              [-95.32112516458925, 18.42935462285743],
+              [-95.32140005907952, 18.429019313003806],
+              [-95.32105971352024, 18.42875851599989],
+              [-95.32085027009897, 18.428497718599672],
+              [-95.31954124871574, 18.42875851599989],
+              [-95.31867729460285, 18.428460461795765],
+              [-95.3184547609677, 18.428013379521317],
+              [-95.3183107686158, 18.426982602070595],
+              [-95.31876892609961, 18.42627471518294],
+              [-95.31921399336993, 18.426013914015797],
+              [-95.31929253465282, 18.425715855055373],
+              [-95.31978996277867, 18.424958286205182],
+              [-95.32023503004858, 18.424523614046578],
+              [-95.32039211261475, 18.424387002569347],
+              [-95.32087645052631, 18.425293603976556],
+              [-95.32116443523088, 18.42567859764877],
+              [-95.32151787100405, 18.426734221038828],
+              [-95.32172731442533, 18.428299015553193],
+              [-95.32171422421146, 18.42882061056011],
+              [-95.32231637404794, 18.428833029469615],
+              [-95.32218547190955, 18.426982602070595],
+              [-95.32206765998502, 18.426088428675513],
+              [-95.3220152991299, 18.425268765645384],
+              [-95.32229019362018, 18.42396474822884],
+              [-95.32329814008494, 18.423927490442935],
+              [-95.3237301171414, 18.423455557791144],
+              [-95.3247904244617, 18.423815717036803],
+              [-95.32387410949369, 18.42574069332194],
+              [-95.32404428227332, 18.426212619702596],
+              [-95.32429299633625, 18.42641132515989],
+              [-95.32416209419785, 18.426920506846656],
+              [-95.32496059724133, 18.427019859194658],
+              [-95.32518313087648, 18.426696963852876],
+              [-95.32602090456162, 18.427268239814666]
+            ]
+          ]
+        },
+        "properties": {
+          "name": "Área de Cobertura Secundaria",
+          "description": "Zona de cobertura secundaria"
+        }
+      }
+    ]
+  }
+}

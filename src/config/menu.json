@@ -22,10 +22,6 @@
       {
         "name": "Nosotros",
         "url": "/nosotros"
-      },
-      {
-        "name": "Trabaja con nostros",
-        "url": "#"
       }
     ],
   
@@ -63,15 +59,15 @@
     "footer3": [
       {
         "name": "Contacto",
-        "url": "#"
+        "url": "/contacto"
       },
       {
-        "name": "Códifo de ética",
+        "name": "Código de ética",
         "url": "#"
       },
       {
         "name": "Mapa de cobertura",
-        "url": "#"
+        "url": "/contacto#coverage-map"
       }
     ]
   }

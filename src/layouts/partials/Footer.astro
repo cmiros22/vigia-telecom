@@ -5,7 +5,7 @@ import Favicon from "/public/images/favicon.svg";
 import FacebookIcon from "/public/images/icons/facebook.svg";
 import InstagramIcon from "/public/images/icons/instagram.svg";
 
-const { footer1, footer2, footer3, offices } = menu;
+const { footer1, footer2, footer3 } = menu;
 const { copyright, location, email, phone, footer_description } = config.params;
 ---
 <footer class="bg-[#0c0e13] pt-15 px-4 sm:px-6 md:px-8 lg:px-20 lg:py-16">
@@ -20,10 +20,10 @@ const { copyright, location, email, phone, footer_description } = config.params;
                   Trabajamos todos los días para ofrecer un internet más rápido, estable y confiable, con el firme compromiso de seguir creciendo junto a nuestra gente.
                 </p>
                 <div class="flex gap-4">
-                    <a href="#" class="size-9 rounded-full flex items-center justify-center hover:bg-zinc-50 transition-colors">
+                    <a href="https://www.facebook.com/profile.php?id=100072176741329" target="_blank" class="size-9 rounded-full flex items-center justify-center hover:bg-[#00d4e6] hover:bg-opacity-20 hover:shadow-2xl transition-colors">
                         <FacebookIcon />
                     </a>
-                    <a href="#" class="size-9 rounded-full flex items-center justify-center hover:bg-zinc-50 transition-colors">
+                    <a href="#" target="_blank" class="size-9 rounded-full flex items-center justify-center hover:bg-[#00d4e6] hover:bg-opacity-20 hover:shadow-2xl transition-colors">
                         <InstagramIcon />
                     </a>
                 </div>
@@ -122,7 +122,7 @@ const { copyright, location, email, phone, footer_description } = config.params;
             <div class="flex flex-wrap justify-center gap-5 md:gap-9">
                 <a href="#" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Política de Privacidad</a>
                 <a href="#" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Aviso de Privacidad</a>
-                <a href="#" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Acerca de</a>
+                <a href="/nosotros" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Acerca de</a>
             </div>
         </div>
     </div>

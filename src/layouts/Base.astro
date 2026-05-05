@@ -79,7 +79,9 @@ const { title, meta_title, description, image, noindex, canonical } =
     />
     
     <!-- favicon and icons -->
-    <link rel="shortcut icon" href={config.site.favicon} />
+    <!-- <link rel="shortcut icon" href={config.site.favicon} /> -->
+    <link rel="icon" href={config.site.favicon_dark} type="image/svg" media="(prefers-color-scheme: light)">
+  <link rel="icon" href={config.site.favicon} type="image/svg" media="(prefers-color-scheme: dark)">   
     <link rel="apple-touch-icon" sizes="180x180" href={config.site.favicon} />
     
     <!-- web app manifest -->

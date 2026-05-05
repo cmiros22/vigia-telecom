@@ -5,6 +5,7 @@
       "base_path": "/",
       "trailing_slash": false,
       "favicon": "/images/favicon.svg",
+      "favicon_dark": "/images/favicon-dark.svg",
       "logo": "/images/logoVigiaBlanco.svg",
       "logo_width": "150",
       "logo_height": "70",

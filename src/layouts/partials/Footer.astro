@@ -121,7 +121,7 @@ const { copyright, location, email, phone, footer_description } = config.params;
             <p class="text-sm text-zinc-500">© 2026 Vigia Telcom. Todos los derechos reservados.</p>
             <div class="flex flex-wrap justify-center gap-5 md:gap-9">
                 <a href="#" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Política de Privacidad</a>
-                <a href="#" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Aviso de Privacidad</a>
+                <a href={import.meta.env.PUBLIC_URL + "/Aviso%20de%20privacidad.pdf"} target="_blank" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Aviso de Privacidad</a>
                 <a href="/nosotros" class="text-sm text-[#64748B] hover:text-zinc-700 transition-colors">Acerca de</a>
             </div>
         </div>

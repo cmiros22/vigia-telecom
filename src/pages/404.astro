@@ -1,0 +1,83 @@
+---
+import Base from '@/layouts/Base.astro';
+import HomeIcon from '/public/images/icons/home.svg';
+import HeadsetIcon from '/public/images/icons/headset.svg';
+import AlertIcon from '/public/images/icons/alert-circle.svg';
+import SatelliteIcon from '/public/images/icons/satellite.svg';
+---
+
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .scanning-line {
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #78d3eb, transparent);
+        position: absolute;
+        width: 100%;
+        top: 0;
+        animation: scan 4s linear infinite;
+    }
+    @keyframes scan {
+        0% { top: 0%; opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { top: 100%; opacity: 0; }
+    }
+</style>
+<Base>
+    <section class="w-full lg:w-3/4 max-w-7xl min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-8 lg:py-12 mx-auto">
+        <div class="bg-[#1D1D26] text-center p-6 sm:p-8 md:p-12 lg:p-16 rounded-2xl shadow-2xl max-w-2xl lg:max-w-md w-full mb-6 sm:mb-8 relative">
+            <div class="scanning-line"></div>
+            <!-- Floating div top-right -->
+            <div class="absolute -top-4 sm:-top-6 lg:-top-8 -right-4 sm:-right-8 lg:-right-12 z-50 bg-[#262A30] backdrop-blur-sm rounded-lg shadow-xl p-2 sm:p-3 max-w-[120px] sm:max-w-xs">
+                <div class="flex flex-row items-center gap-1.5 sm:gap-2">
+                    <AlertIcon class="w-4 h-4 sm:w-5 sm:h-5 text-[#FFB4AB]" />
+                    <div class="flex flex-col items-start">
+                        <span class="text-[10px] sm:text-xs font-light text-[#C4C6D0]">SIGNAL STATUS</span>
+                        <span class="text-xs sm:text-sm font-medium text-[#FFB4AB]">DISCONNECTED</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating div bottom-left -->
+            <div class="absolute -bottom-4 sm:-bottom-6 lg:-bottom-8 -left-4 sm:-left-10 lg:-left-16 z-50 bg-[#262A30] backdrop-blur-sm rounded-lg shadow-xl p-2 sm:p-3 max-w-[120px] sm:max-w-xs">
+                <div class="flex flex-row items-center gap-1.5 sm:gap-2">
+                    <SatelliteIcon class="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                    <div class="flex flex-col items-start">
+                        <span class="text-[10px] sm:text-xs font-light text-[#C4C6D0]">SENTINEL NODE</span>
+                        <span class="text-xs sm:text-sm font-medium text-[#C4C6D0]">VIGIA-0X404</span>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold bg-gradient-to-r from-[#78D3EB] via-[#00DCE5] to-[#007E94] bg-clip-text text-transparent mb-4 sm:mb-6">404</h1>
+        </div>
+        
+        <div class="text-center max-w-3xl lg:max-w-2xl mb-6 sm:mb-8">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight font-medium text-slate-50 mb-3 sm:mb-4">
+                Conexión fuera de alcance
+            </h2>
+            <p class="text-sm sm:text-base md:text-lg text-[#C4C6D0] font-light leading-relaxed">
+                Nuestros radares no detectan la señal que buscas. Es posible que el enlace haya sido reubicado o que la dirección sea incorrecta en la red de Vigia.
+            </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center w-full max-w-md">
+            <a href="/" class="w-full sm:w-auto">
+                <button class="flex items-center justify-center gap-2 sm:gap-3 text-[#003640] px-6 sm:px-8 py-3 text-sm sm:text-base hover:scale-105 transition-all duration-300 rounded-full shadow-lg w-full sm:w-auto" style="background: linear-gradient(90deg, rgb(43, 215, 229) 0%, rgb(15, 186, 203) 49%, rgb(15, 150, 171) 100%);">
+                    <HomeIcon class="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span class="hidden sm:inline">Volver al Inicio</span>
+                    <span class="sm:hidden">Inicio</span>
+                </button>
+            </a>
+            <a href="/contacto" class="w-full sm:w-auto">
+                <button class="flex items-center justify-center gap-2 sm:gap-3 text-[#E0E2EA] px-6 sm:px-8 py-3 text-sm sm:text-base bg-[#31353B] hover:scale-105 transition-all duration-300 rounded-full shadow-lg w-full sm:w-auto hover:bg-[#1e293b]">
+                    <HeadsetIcon class="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span class="hidden sm:inline">Soporte Técnico</span>
+                    <span class="sm:hidden">Soporte</span>
+                </button>
+            </a>
+        </div>
+    </section>
+</Base>

@@ -103,8 +103,13 @@ const error = searchParams.get('error');
                 </div>
 
                 <div class="mb-5">
-                    <label class="block text-sm text-[#E2E2E9] mb-2">ASUNTO</label>
-                    <input type="text" name="subject" placeholder="Soporte Técnico" autocomplete="off" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/>
+                    <label for="subject" class="block text-sm text-[#E2E2E9] mb-2">ASUNTO</label>
+                    <label for="">Selecciona una opción:</label>
+                    <select id="subject" name="subject" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors">
+                        <option value="Contratar plan">Contratar plan</option>
+                        <option value="Quejas y sugerencias">Quejas y sugerencias</option>
+                    </select>
+                    <!-- <input type="text" name="subject" placeholder="Soporte Técnico" autocomplete="off" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/> -->
                 </div>
 
                 <div class="mb-5">

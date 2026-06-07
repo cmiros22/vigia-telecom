@@ -22,28 +22,32 @@
       {
         "name": "Nosotros",
         "url": "/nosotros"
+      },
+      {
+        "name": "Misión",
+        "url": "/nosotros#mision-vision"
+      },
+      {
+        "name": "Visión",
+        "url": "/nosotros#mision-vision"
       }
     ],
   
     "footer2": [
       {
-        "name": "Tarifas",
+        "name": "Título de concesión",
         "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Pagina%20Web%202.pdf"
       },
       {
-        "name": "Catálogo de trámites",
+        "name": "Nota informativa",
         "url": "#"
       },
       {
-        "name": "Contrato de Adhesión",
+        "name": "Cumplimiento y lineamientos de calidad del servicio",
         "url": "#"
       },
       {
-        "name": "Cobertura de Servicio",
-        "url": "#"
-      },
-      {
-        "name": "Carta de derechos mínimos",
+        "name": "Avisos importantes",
         "url": "#"
       },
       {
@@ -53,10 +57,6 @@
       {
         "name": "Colaboración en materia de seguridad y justicia",
         "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Colaboracio%CC%81n%20en%20materia%20de%20seguridad%20y%20justicia.pdf"
-      },
-      {
-        "name": "Código de Políticas de Gestión de Tráfico y Administración de Red",
-        "url": "#"
       }
     ],
 

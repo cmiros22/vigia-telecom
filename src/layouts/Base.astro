@@ -81,7 +81,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- favicon and icons -->
     <!-- <link rel="shortcut icon" href={config.site.favicon} /> -->
     <link rel="icon" href={config.site.favicon_dark} type="image/svg" media="(prefers-color-scheme: light)">
-  <link rel="icon" href={config.site.favicon} type="image/svg" media="(prefers-color-scheme: dark)">   
+    <link rel="icon" href={config.site.favicon} type="image/svg" media="(prefers-color-scheme: dark)">   
     <link rel="apple-touch-icon" sizes="180x180" href={config.site.favicon} />
     
     <!-- web app manifest -->
@@ -169,6 +169,8 @@ const { title, meta_title, description, image, noindex, canonical } =
       meta_title ? meta_title : title ? title : config.site.title,
     )} />
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- Elfsight WhatsApp Chat | Untitled WhatsApp Chat -->
+    <script src="https://elfsightcdn.com/platform.js" async></script>
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -190,9 +192,10 @@ const { title, meta_title, description, image, noindex, canonical } =
       "inLanguage": "es-MX"
     }, null, 2)}></script>
   </head>
-  <body class="debug-screens bg-[#0c0e13]">
+  <body style="background: #0c0e13 !important;">
     <!-- <TwSizeIndicator /> -->
     <Header />
+    <div class="elfsight-app-a9f22328-d540-49d9-bff6-aaa20448cbec" data-elfsight-app-lazy></div>
     <main id="main-content">
       <slot />
     </main>

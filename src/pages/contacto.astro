@@ -72,7 +72,7 @@ const error = searchParams.get('error');
     }
 </script>
 
-<section class="flex items-center bg-[#0c0e13] justify-center py-12 px-4 mb-4 lg:mb-6">
+<section id="formulario" class="flex items-center bg-[#0c0e13] justify-center py-12 px-4 mb-4 lg:mb-6">
     <div class="grid md:grid-cols-2 md:gap-10 lg:gap-20 max-w-7xl w-full items-center">
         <div class="p-5 bg-[#1D1D26] rounded-xl">
             <h1 class="text-lg font-semibold text-[#E2E2E9] text-center md:text-start mb-6 tracking-tight">
@@ -106,8 +106,14 @@ const error = searchParams.get('error');
                     <label for="subject" class="block text-sm text-[#E2E2E9] mb-2">ASUNTO</label>
                     <label class="block text-sm text-[#E2E2E9] mb-2" for="">Selecciona una opción:</label>
                     <select id="subject" name="subject" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors">
-                        <option value="Contratar plan">Contratar plan</option>
-                        <option value="Quejas y sugerencias">Quejas y sugerencias</option>
+                        <option value="Aclaraciones">Aclaraciones</option>
+                        <option value="Dudas">Dudas</option>
+                        <option value="Quejas">Quejas</option>
+                        <option value="Reclamaciones">Reclamaciones</option>
+                        <option value="Soporte Tecnico">Soporte Técnico</option>
+                        <option value="Ventas y Planes">Ventas y Planes</option>
+                        <option value="Facturacion">Facturación</option>
+                        <option value="Otro">Otro</option>
                     </select>
                     <!-- <input type="text" name="subject" placeholder="Soporte Técnico" autocomplete="off" class="bg-[#33353B] text-[#E2E2E9] w-full px-3 py-3 rounded-xl text-sm outline-none focus:border-[#6EDE74] transition-colors"/> -->
                 </div>
@@ -145,6 +151,23 @@ const error = searchParams.get('error');
                         <p class="text-[#E2E2E9] text-sm mb-2">Dirección Física</p>
                         <p class="text-[#E2E2E9] text-xs font-light">Calle Revolución esquina Adalberto Tejeda</p>
                         <p class="text-[#E2E2E9] text-xs font-light">Séptima Manzana, 95833, Santiago Tuxtla,Ver.</p>
+                    </div>
+                </div>
+                <div class="flex flex-row gap-3 items-center">
+                    <div class="flex items-center justify-center p-2 bg-[#AEC6FF] bg-opacity-20 rounded-xl w-12 h-12 border border-[#AEC6FF]">
+                        <EmailIcon width="32" height="32" class="Mision-icon" />
+                    </div>
+                    <div class="">
+                        <p class="text-[#E2E2E9] text-sm mb-2">Horario de atención</p>
+                        <p class="text-[#E2E2E9] text-xs font-light">
+                            Lunes a Viernes: 9:00 AM - 18:00 PM
+                        </p>
+                        <p class="text-[#E2E2E9] text-xs font-light">
+                            Sábado: 9:00 AM - 18:00 PM
+                        </p>
+                        <p class="text-[#E2E2E9] text-xs font-light">
+                            Domingo: Cerrado
+                        </p>
                     </div>
                 </div>
                 <div class="flex flex-row gap-3 items-center">

@@ -72,7 +72,7 @@ const Maps = () => {
     const [lng, lat] = feature.center;
 
     // Verificar si está dentro del área de cobertura
-    const isInCoverageArea = lng >= -95.310 && lng <= -95.270 && lat >= 18.430 && lat <= 18.500;
+    const isInCoverageArea = lng >= -95.55 && lng <= -95.25 && lat >= 18.3 && lat <= 18.55;
 
     if (!isInCoverageArea) {
       alert('Fuera de Cobertura: La ubicación seleccionada está fuera del área de cobertura de Vigia Telecom.');
@@ -299,27 +299,27 @@ const Maps = () => {
       // Agregar marcadores de postes de fibra óptica desde JSON
       const fiberPoles = fiberNetworkData.fiberPoles;
 
-      fiberPoles.forEach(pole => {
-        const poleMarkerEl = document.createElement('div');
-        const poleMarkerInner = document.createElement('div');
-        poleMarkerInner.className = pole.type === 'active' ? 'fiber-active-marker' : 'fiber-pole-marker';
-        poleMarkerEl.appendChild(poleMarkerInner);
+      // fiberPoles.forEach(pole => {
+      //   const poleMarkerEl = document.createElement('div');
+      //   const poleMarkerInner = document.createElement('div');
+      //   poleMarkerInner.className = pole.type === 'active' ? 'fiber-active-marker' : 'fiber-pole-marker';
+      //   poleMarkerEl.appendChild(poleMarkerInner);
 
-        const poleMarker = new mapboxgl.Marker(poleMarkerEl)
-          .setLngLat(pole.coords)
-          .addTo(map.current);
+      //   const poleMarker = new mapboxgl.Marker(poleMarkerEl)
+      //     .setLngLat(pole.coords)
+      //     .addTo(map.current);
 
-        const polePopup = new mapboxgl.Popup()
-          .setHTML(`
-            <div class="p-2">
-              <h3 class="text-sm font-bold text-blue-600">${pole.name}</h3>
-              <p class="text-xs text-gray-600">Estado: <span class="font-semibold ${pole.status === 'Activo' ? 'text-green-500' : 'text-yellow-500'}">${pole.status}</span></p>
-              <p class="text-xs text-gray-600">Conexiones: ${pole.connections}</p>
-              <p class="text-xs text-gray-500">Poste de fibra óptica</p>
-            </div>
-          `);
-        poleMarker.setPopup(polePopup);
-      });
+      //   const polePopup = new mapboxgl.Popup()
+      //     .setHTML(`
+      //       <div class="p-2">
+      //         <h3 class="text-sm font-bold text-blue-600">${pole.name}</h3>
+      //         <p class="text-xs text-gray-600">Estado: <span class="font-semibold ${pole.status === 'Activo' ? 'text-green-500' : 'text-yellow-500'}">${pole.status}</span></p>
+      //         <p class="text-xs text-gray-600">Conexiones: ${pole.connections}</p>
+      //         <p class="text-xs text-gray-500">Poste de fibra óptica</p>
+      //       </div>
+      //     `);
+      //   poleMarker.setPopup(polePopup);
+      // });
       console.log('Animated office marker added');
 
       // Asegurar que el mapa se renderice completamente
@@ -330,35 +330,46 @@ const Maps = () => {
         // Agregar GeoJSON layer para el área de cobertura desde JSON
         const coverageArea = fiberNetworkData.coverageArea;
 
-        // Agregar el layer al mapa
-        map.current.addLayer({
-          id: 'coverage-area',
-          type: 'fill',
-          source: {
-            type: 'geojson',
-            data: coverageArea
-          },
-          layout: {},
-          paint: {
-            'fill-color': '#3B82F6',
-            'fill-opacity': 0.5
-          }
-        });
+        if (!coverageArea || !coverageArea.features || coverageArea.features.length === 0) {
+          console.error('Coverage area data is empty or invalid');
+          return;
+        }
 
-        // Agregar borde del área
-        map.current.addLayer({
-          id: 'coverage-border',
-          type: 'line',
-          source: {
-            type: 'geojson',
-            data: []
-          },
-          layout: {},
-          paint: {
-            'line-color': '#3B82F6',
-            'line-width': 2
-          }
-        });
+        try {
+          // Agregar el layer al mapa
+          map.current.addLayer({
+            id: 'coverage-area',
+            type: 'fill',
+            source: {
+              type: 'geojson',
+              data: coverageArea
+            },
+            layout: {},
+            paint: {
+              'fill-color': '#3B82F6',
+              'fill-opacity': 0.5
+            }
+          });
+          console.log('Coverage area layer added successfully');
+
+          // Agregar borde del área
+          map.current.addLayer({
+            id: 'coverage-border',
+            type: 'line',
+            source: {
+              type: 'geojson',
+              data: coverageArea
+            },
+            layout: {},
+            paint: {
+              'line-color': '#3B82F6',
+              'line-width': 2
+            }
+          });
+          console.log('Coverage border layer added successfully');
+        } catch (error) {
+          console.error('Error adding coverage area layer:', error);
+        }
 
         // Agregar líneas de cableado de fibra óptica entre postes desde JSON
         const fiberCables = {

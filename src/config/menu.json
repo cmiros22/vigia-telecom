@@ -36,7 +36,7 @@
     "footer2": [
       {
         "name": "Título de concesión",
-        "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Pagina%20Web%202.pdf"
+        "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Titulo%20De%20Concesion.pdf"
       },
       {
         "name": "Nota informativa",
@@ -47,15 +47,15 @@
         "url": "#"
       },
       {
-        "name": "Avisos importantes",
-        "url": "#"
+        "name": "Aviso de privacidad",
+        "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Aviso%20de%20privacidad.pdf"
       },
       {
         "name": "Código de prácticas comerciales",
         "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Co%CC%81digo%20de%20pra%CC%81cticas%20comerciales.pdf"
       },
       {
-        "name": "Colaboración en materia de seguridad y justicia",
+        "name": "Aviso de colaboración en materia de seguridad y justicia",
         "url": "https://pub-e62485ab44b54a9d90fdfbdb19773f51.r2.dev/Colaboracio%CC%81n%20en%20materia%20de%20seguridad%20y%20justicia.pdf"
       }
     ],

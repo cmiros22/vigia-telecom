@@ -175,7 +175,7 @@ const { title, meta_title, description, image, noindex, canonical } =
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "WebPage",
+      "@type": "Organization",
       "name": plainify(meta_title ? meta_title : title ? title : config.site.title),
       "description": plainify(description ? description : config.metadata.meta_description),
       "url": `${config.site.base_url}${Astro.url.pathname}`,

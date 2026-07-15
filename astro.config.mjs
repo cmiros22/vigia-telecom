@@ -12,13 +12,20 @@ import config from "./src/config/config.json";
 // https://astro.build/config
 export default defineConfig({
   output: "static",
-  site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
+  site: config.site.base_url ? config.site.base_url : "https://vigiatelecom.com/",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
 
   integrations: [
     react(),
-    sitemap(),
+    sitemap({
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          es: "es-MX",
+        },
+      },
+    }),
     tailwind(),
     mdx(),
   ],
